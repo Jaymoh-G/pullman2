@@ -127,14 +127,14 @@
                     >
                         <div class="about_image1">
                             <img
-                                src="{{ asset('storage/' . $sectionOneData->image) }}"
+                                src="{{ asset( $sectionOneData->image) }}"
                                 alt="{{$sectionOneData->name}}"
                             />
                         </div>
 
                         <div class="about_image2">
                             <img
-                                src="{{ asset('storage/' . $sectionOneData->icon) }}"
+                                src="{{ asset( $sectionOneData->icon) }}"
                                 alt="{{$sectionOneData->name}}"
                             />
                         </div>

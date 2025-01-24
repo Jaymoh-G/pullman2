@@ -12,7 +12,7 @@
                 rgba(0, 0, 0, 0.5)
             );
         "
-        data-image-src="images/power2.jpg"
+        data-image-src="{{ asset('images/power2.jpg') }}"
         data-speed="0.8"
     ></div>
     <div class="home_container">
@@ -63,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="climate-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <img src="images/water.png" alt="" srcset="" />
+                <img src="{{ asset('images/water.png') }}" alt="" srcset="" />
                 <h2 style="color:#111112;">Civil Works</h2>
                 <p>
                     Our civil projects vary. We would love to discuss your project. Kindly get in touch for  estimates.
@@ -75,7 +75,7 @@
                 >
             </div>
             <div class="energy-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <img src="images/earthworks.png" alt="" srcset="" />
+            <img src="{{ asset('images/earthworks.png') }}" alt="" srcset="" />
                 <h2 style="color:#111112;">Excavation and Demolition</h2>
                 <p>
                 With our expertise in earthmoving and waste management,
@@ -99,7 +99,7 @@
         <div class="row">
             <div class="climate-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <img
-                    src="images/crane.png"
+                    src="{{ asset('images/crane.png') }}"
                     alt=""
                     srcset=""
                 />
@@ -117,7 +117,8 @@
                 >
             </div>
             <div class="energy-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <img src="images/materials.png" alt="" srcset="" />
+            
+                <img src="{{ asset('images/materials.png') }}" alt="" srcset="" />
                 <h2 style="color:#111112;">Building Materials Supply</h2>
                 <p>
                 Our Building Materials Supply service sources and delivers

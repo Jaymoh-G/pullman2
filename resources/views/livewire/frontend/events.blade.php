@@ -48,7 +48,7 @@
               rgba(0, 0, 0, 0.5)
             );
           "
-          data-image-src="images/power2.jpg"
+          data-image-src="{{ asset('images/power2.jpg') }}"
           data-speed="0.8"
         ></div>
         <div class="home_container">

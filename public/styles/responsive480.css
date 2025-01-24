@@ -1,0 +1,230 @@
+@media only screen and (max-width: 480px) {
+    .media_title::before {
+        left: 2.6em !important;
+        top: 0.5em;
+        width: 86px;
+    }
+
+    .media_title::after {
+        left: 12.7em !important;
+        top: 0.5em;
+        width: 86px;
+    }
+
+    #topbar input[type="text"] {
+        padding: 6px;
+        margin-bottom: 26px;
+        font-size: 17px;
+        width: 80px;
+        height: 30px;
+    }
+    #topbar .search-container button {
+        margin-right: -25px;
+    }
+
+    .pub_videos iframe {
+        margin-top: 2em;
+        width: 100%;
+        height: 20em;
+    }
+
+    .home_content_inner .home_title h1 {
+        font-size: 26px;
+        padding-top: 1em;
+    }
+    .home_content_inner .home_text p {
+        font-size: 14px;
+        padding-top: 0.5em;
+        font-weight: 600;
+    }
+
+    .publication {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+        margin-left: 0em;
+        margin-top: 2em;
+        text-align: left;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+        width: 100%;
+        text-align: center;
+    }
+    .pub_videos iframe {
+        margin-top: 8em;
+        height: 14em;
+    }
+    .pdficon-img {
+        width: 7em;
+        height: 8em;
+    }
+    .media-pub .media_title::before {
+        display: none;
+    }
+    .media-pub .media_title::after {
+        display: none;
+    }
+
+    /***********************************
+	What We do pages responsive styling
+	***********************************/
+    .section-done h2 {
+        padding-left: 3em;
+        font-size: 15px;
+    }
+    .whatwedo-cta .cta-content {
+        margin-left: 5em;
+        padding-right: 1em;
+        padding-top: 2em;
+        width: 80%;
+    }
+
+    /* responsiveness for sustainable dev,climate resilience..projects section */
+
+    .projects .media_title::before {
+        left: 1.9em;
+        width: 88px;
+    }
+
+    .projects .media_title::after {
+        left: 10.9em;
+        width: 88px;
+    }
+    .carousel-item .proj-name {
+        left: 2em;
+    }
+
+    /***********************************
+		Powershift news page responsive styling
+	***********************************/
+    .events .top-content p {
+        padding-top: 2em;
+        margin-left: 10.2em;
+    }
+
+    .news-sec .top-content p {
+        margin-left: 11em;
+    }
+
+    .press .top-content p {
+        padding-top: 2em;
+        margin-left: 4em;
+    }
+
+    .events .top-content h2,
+    .news-sec .top-content h2,
+    .press .top-content h2 {
+        font-size: 26px;
+        padding-left: 0px;
+        padding-bottom: 0em;
+    }
+
+    .team-details .card-img-top {
+        margin-left: 4em;
+    }
+
+    /***********************************
+	Media page responsive styling
+	***********************************/
+
+    .mediapage .videos-div iframe {
+        width: 22em;
+        height: 170px;
+        margin-left: 0.1em;
+    }
+
+    .photos-div .card-div {
+        background-color: black;
+        width: 20em;
+    }
+    .featured-options .btn {
+        width: 9.6em;
+        font-size: 8px;
+        padding-left: 2px;
+        margin-left: 1px;
+    }
+    .featured-options #videos-btn {
+        margin-left: 0em;
+    }
+
+    .quote-card-slider {
+        margin-left: 10px;
+    }
+    /***********************************
+	Gallery page responsive styling
+	***********************************/
+    .gallery-page .widget.widget_categories ul li {
+        width: 160px;
+    }
+    .gallery-page .blogs h2 {
+        margin-top: 2em;
+    }
+    .gallery-page .btn-part .post-social-wrapper {
+        margin-left: 0.8em;
+    }
+    .gallery-page .widget.widget_categories ul li {
+        margin-left: 1em;
+    }
+    .gallery-page .blog-comment {
+        padding-left: 10px;
+    }
+    .gallery-page .fakeimg img {
+        object-fit: cover;
+        width: 100%;
+        height: 100% !important;
+    }
+    .gallery-page .blog-details {
+        margin-top: 36px;
+    }
+
+    .gallery-page .category .btn {
+        width: 100% !important;
+    }
+
+    .gallery-page .category li > a {
+        padding-left: 1px;
+        font-size: 9px;
+    }
+
+    .gallery-page .category h5 {
+        text-align: left;
+        margin-left: 3em;
+    }
+    .aboutpage .about-title h2 {
+        padding-top: 0em;
+    }
+    .about_text > p {
+        width: auto !important;
+    }
+    .aboutpage .about-image img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .about-image {
+        margin-top: 0px;
+    }
+    #topbar > .container > .social-links > .search-container,
+    #topbar > .container > .social-links > .social {
+        display: none;
+    }
+    #topbar .contact-links {
+        display: flex !important;
+    }
+    #topbar > .container > .social-links > .contact-links > span:nth-child(1) {
+        padding-top: 60px;
+    }
+    #topbar > .container > .social-links > .contact-links > span:nth-child(2) {
+        display: none;
+    }
+    .contact-info {
+        min-width: 51%;
+    }
+
+    #topbar .social-links {
+        margin-right: 0em;
+    }
+}

@@ -1,0 +1,30 @@
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .whatwedo-cta .cta-content {
+        margin-left: 38em;
+        padding-right: 5em;
+        padding-top: 2em;
+        width: 50%;
+    }
+    #topbar .social {
+        display: none;
+    }
+    #topbar input[type="text"] {
+        margin-left: 1em;
+    }
+    .join_us .container {
+        padding-inline: 7em;
+    }
+    .latest-row .card-img-top {
+        width: 100%;
+        object-fit: cover;
+    }
+    .latest-div .card {
+        width: 20em !important;
+    }
+    .card-date .date-no {
+        font-size: 20px !important;
+    }
+    .latest-row .card-date {
+        font-size: 9px !important;
+    }
+}

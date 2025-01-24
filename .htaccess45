@@ -1,0 +1,32 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www.pullmanexcavatorskenya.com$
+    RewriteRule (.*) https://pullmanexcavatorskenya.com/$1 [R=301,L]
+    
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Rewrite URLs starting with /public to replace the beginning with https://example.com/public
+    RewriteRule ^(.*)/public/(.*)$ https://pullmanexcavatorskenya.com/public/$2 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Rewrite URLs ending with a file extension to the public directory
+    RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+    RewriteRule ^(.*)$ public/$1 
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ server.php
+</IfModule>
+
+

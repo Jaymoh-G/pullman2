@@ -1,0 +1,98 @@
+.container nav.navbar .mobile-nav {
+    display: none;
+}
+/* .container nav.navbar .top-menu {
+    display: flex;
+} */
+
+.container nav.navbar .top-menu .menu-item {
+    position: relative;
+}
+
+.container nav.navbar .top-menu .menu-item.has-sub-menu > a {
+    position: relative;
+}
+.container nav.navbar .close-menu {
+    display: none;
+}
+
+.close-menu {
+    display: none !important;
+}
+
+@media screen and (min-width: 991px) {
+    .container nav.navbar .top-menu .has-sub-menu .nav-link .show-sub-menu {
+        display: none;
+    }
+
+    .container nav.navbar .top-menu .has-sub-menu .nav-link .close-sub-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .container nav.navbar .mobile-nav {
+        display: block;
+    }
+
+    .container nav.navbar .top-menu .menu-item.has-sub-menu .sub-menu {
+        position: absolute;
+        z-index: 999;
+        opacity: 1;
+        /* transform: translateY(-200px); */
+        pointer-events: all;
+        min-width: 88%;
+        width: max-content;
+        list-style-type: none;
+    }
+
+    .container
+        nav.navbar
+        .top-menu
+        .menu-item.has-sub-menu
+        .sub-menu
+        .menu-item {
+        width: 100%;
+    }
+
+    .container nav.navbar {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        /* min-height: 100vh; */
+        z-index: 999;
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s ease-out;
+    }
+
+    .container nav.navbar.is-active {
+        opacity: 1;
+        pointer-events: all;
+        width: 100%;
+    }
+
+    .container nav.navbar .top-menu {
+        flex-direction: column;
+    }
+
+    .container nav.navbar .top-menu .has-sub-menu > .sub-menu {
+        display: none;
+        position: relative;
+    }
+
+    .close-sub-menu {
+        display: none;
+    }
+
+    .show-sub-menu {
+        display: block;
+    }
+
+    .navbar > ul > li {
+        padding: 10px 10px 10px 10px;
+    }
+}

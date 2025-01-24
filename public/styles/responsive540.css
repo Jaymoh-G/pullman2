@@ -1,0 +1,118 @@
+@media only screen and (max-width: 540px) {
+    /***********************************
+		Homepage responsive styling
+    ***********************************/
+    #topbar .search-container button {
+        float: right;
+        padding: 8px 9px;
+        margin-top: 15px;
+        margin-right: 16px;
+        background: transparent;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+    .cta_button {
+        margin-left: 12em;
+    }
+    .about_content {
+        margin-left: 1em;
+        text-align: left;
+    }
+    .media-pub .media_title::after {
+        left: 19.1em;
+        top: 0.6em;
+    }
+    .publication {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+        margin-right: 0.8em;
+        margin-top: 2em;
+        text-align: left;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+    }
+    .pub_videos iframe {
+        margin-top: 2em;
+        margin-left: 0.2em;
+        width: 16em;
+        height: 16em;
+    }
+    .pdficon-img {
+        width: 7em;
+        height: 8em;
+    }
+    .publication .btn {
+        width: 9.4em;
+    }
+
+    /***********************************
+		About Page responsive styling
+	***********************************/
+    .about .col-lg-7 {
+        padding-left: 1rem;
+    }
+    .about_text {
+        margin-top: 10px;
+        margin-right: 1em;
+    }
+    .about_text p {
+        padding-right: 0px;
+    }
+    .about-image img {
+        width: 320px;
+        margin-top: 0em;
+        margin-left: 3em;
+    }
+
+    /***********************************
+	What We do pages responsive styling
+	***********************************/
+    /* responsiveness for sustainable dev,climate resilience..projects section */
+    .projects .media_title::before {
+        left: 1.5em;
+        width: 78px;
+    }
+
+    .projects .media_title::after {
+        left: 9.9em;
+        width: 78px;
+    }
+    .carousel-item .proj-name {
+        left: 0em;
+    }
+
+    .btn-part .post-social-wrapper {
+        margin-left: 10.5em;
+    }
+    .past_events .card,
+    .past_events .card-img-top {
+        width: 23em;
+    }
+    .other-events .card {
+        width: 25em;
+    }
+
+    /***********************************
+	Media page responsive styling
+	***********************************/
+    .featured-options .btn {
+        width: 10em;
+        font-size: 8px;
+        padding-left: 4px;
+        margin-left: 1px;
+    }
+
+    .mediapage iframe {
+        width: 30em;
+    }
+    .featured-options #videos-btn {
+        margin-left: 3.3em;
+    }
+
+    .quote-card-slider {
+        margin-left: 4em;
+    }
+}

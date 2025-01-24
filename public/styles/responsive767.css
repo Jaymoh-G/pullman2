@@ -1,0 +1,1000 @@
+@media only screen and (max-width: 767px) {
+    #topbar .search-container button {
+        float: right;
+        padding: 8px 9px;
+        margin-top: 25px;
+        margin-right: 16px;
+        background: transparent;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #topbar input[type="text"] {
+        padding: 6px;
+        margin-top: 18px;
+        margin-left: 128px;
+        font-size: 17px;
+        width: 140px;
+        height: 30px;
+    }
+    .about_image1 img {
+        display: none;
+    }
+    .about_image2 img {
+        display: none;
+    }
+    .aboutpage .about-image img {
+        width: 25em;
+        margin-left: 2em !important;
+    }
+    /***********************************
+		About us > Our goals
+	***********************************/
+    .div.about.goals > div > div > div {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    /***********************************
+		Topbar responsive styling
+	***********************************/
+    #topbar .search-container {
+        margin-top: 0.9em;
+    }
+    /***********************************
+		Homepage responsive styling
+	***********************************/
+    p {
+        font-size: 13px;
+    }
+
+    .videos-div iframe {
+        margin-top: 1em;
+        width: 13em;
+        height: 100%;
+        padding-right: 1.6em;
+    }
+
+    .quote-card .quote-text {
+        left: 9.8em;
+        max-width: 54%;
+    }
+    .logo_container {
+        height: 127px;
+    }
+    .logo {
+        margin-top: 9px;
+    }
+    .header.scrolled {
+        top: 0px !important;
+    }
+    .header_content,
+    .header.scrolled .header_content {
+        height: 60px;
+    }
+    .header.scrolled .logo_container {
+        top: 0;
+    }
+    .header.scrolled .logo_container {
+        height: 77px;
+    }
+    .home_title,
+    .home_text {
+        visibility: visible;
+    }
+    .home_content_inner .home_title h1 {
+        font-size: 32px;
+    }
+    .home_content_inner .home_text p {
+        padding-top: 1em;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .hamburger i {
+        font-size: 20px;
+    }
+    .logo_container {
+        width: 141px;
+        height: 77px;
+    }
+    .logo_content {
+        padding-left: 20px;
+    }
+    .logo_text {
+        font-size: 16px;
+    }
+    .logo_box {
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        font-size: 12px;
+    }
+    .logo_sub {
+        font-size: 10px;
+        padding-left: 1px;
+    }
+    .menu {
+        top: 90px;
+    }
+    .menu_close_container {
+        top: 20px;
+        right: 20px;
+    }
+    .home {
+        height: 230px;
+    }
+
+    .home .slide-content h1 {
+        margin-top: 2em;
+        font-family: "Montserrat", sans-serif;
+        font-size: 39px;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+    .home .slide-content {
+        margin-top: 2em;
+    }
+    .home .slide-content p {
+        font-size: 17px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    .home_content {
+        top: calc(50% + 34px);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .home_title h1 {
+        font-size: 36px;
+    }
+    .home_text p {
+        font-size: 13px;
+    }
+
+    .media-pub .media_title::before {
+        left: 1.1em;
+        top: 0.6em;
+    }
+    .media-pub .media_title::after {
+        left: 19.6em;
+        top: 0.6em;
+    }
+    .menu_container {
+        width: 100vw;
+        right: -100vw;
+    }
+    .menu_item a {
+        font-size: 20px;
+    }
+    .section_title h2 {
+        font-size: 24px;
+    }
+    .button {
+        height: 41px;
+    }
+    .button a {
+        font-size: 11px;
+        line-height: 41px;
+        padding-left: 29px;
+        padding-right: 34px;
+    }
+    .box {
+        padding-left: 25px;
+    }
+    .working_hours {
+        padding-right: 30px;
+    }
+    .cta_content h2 {
+        font-size: 28px;
+    }
+    .home_content_inner {
+        width: 100%;
+    }
+    .dept_text {
+        margin-top: 15px;
+    }
+    .dept_button {
+        position: relative;
+        margin-top: 20px;
+    }
+    .cr {
+        margin-left: 1em;
+    }
+    .copyright_content {
+        width: 100%;
+        height: auto !important;
+    }
+    .footer .row {
+        font-size: 12px;
+    }
+
+    .footer .row .fa {
+        font-size: 16px;
+    }
+    .footer_about_logo {
+        margin-left: 0em !important;
+    }
+    .footer_title::after {
+        left: 1.4em;
+        bottom: -0.7em;
+        width: 50px;
+    }
+    .footer_about_list li span {
+        font-size: 14px;
+        padding-left: 1px;
+    }
+
+    .footer_social {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+    }
+
+    .footer_social ul li a i {
+        font-size: 18px;
+    }
+    .styled-h2 {
+        font-size: 25px;
+    }
+    .subscribe .name,
+    .subscribe .mail {
+        height: 3em;
+        width: 12em;
+        font-size: 12px;
+    }
+    .subscribe .subscribe-btn {
+        width: 6em;
+        margin-top: 0.2em;
+        font-size: 12px;
+    }
+    .pdficon-img {
+        width: 6em;
+        height: 6em;
+        margin-left: 1em;
+    }
+
+    .homepage .media {
+        margin-bottom: 1em;
+    }
+
+    .homepage .latest .media_title::after {
+        display: block;
+        position: absolute;
+        left: 17em;
+        top: 0.5em;
+    }
+    .media-subtitle {
+        font-size: 12px;
+    }
+    .media_title::before {
+    }
+    .homepage .latest .media_title::after {
+    }
+    .media-pub .media_title::after {
+        /* display: none; */
+    }
+
+    /***********************************
+		Powershift news page responsive styling
+	***********************************/
+    .publication {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+        margin-left: 0em;
+        margin-top: 2em;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+    }
+    .pub_videos iframe {
+        margin-top: 3em;
+        height: 14em;
+    }
+    .pdficon-img {
+        width: 7em;
+        height: 8em;
+    }
+
+    .join_us .container {
+        display: flex;
+        padding-top: 1em;
+        flex-direction: column;
+        margin-inline: auto !important;
+        text-align: center;
+        padding-top: 1em;
+        flex-direction: column;
+    }
+
+    .joinUs_button {
+        margin-top: 2em;
+        margin-bottom: 2em !important;
+        width: 105px;
+        padding-top: 8px;
+        margin-left: 0.5em;
+        padding-left: 0rem !important;
+    }
+    .card-img-top {
+        width: 100%;
+    }
+    .card {
+        margin-left: 1em;
+    }
+    .card .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-date {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cta_button {
+        margin-left: 11.8em;
+    }
+
+    .about-text p {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .about .about_text h2 {
+        /* padding-left: 10px; */
+        font-size: 20px;
+        text-align: left;
+    }
+    .about .about_text p {
+        text-align: left;
+    }
+    .about .about_button {
+        margin-top: 2px;
+        background-color: #111112;
+        width: 130px;
+        height: 40px;
+        padding-top: 8px;
+        margin-inline: auto;
+    }
+    .about_image1 img {
+        display: none;
+        /* width: 98px;
+        height: 98px; */
+    }
+    .about_image2 img {
+        display: none;
+        /* width: 98px;
+        height: 98px;
+        top: -40px;
+        left: 48px; */
+    }
+    .about .col-xs-8 {
+        width: 100%;
+    }
+    .about .col-xs-4 {
+        width: 30%;
+    }
+    .about_images {
+        margin-top: 2.2em;
+    }
+
+    .about_content {
+        margin-left: 1em;
+        text-align: left;
+    }
+    .about-careers img {
+        margin-top: 2em;
+        margin-bottom: 6em;
+        height: 35em;
+        width: 41em;
+        object-fit: cover;
+    }
+    .box {
+        width: 100%;
+        height: 16em;
+
+        /* margin-left: 1.6em; */
+    }
+    .box_title {
+        font-size: 16px;
+    }
+
+    .box::after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 10px;
+        background: #111112;
+        content: "";
+    }
+    .box-brown::after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 10px;
+        background: #111112;
+        content: "";
+    }
+
+    .box {
+        box-shadow: -2px -1px 34px 0px rgba(6, 5, 5, 0.24);
+        -webkit-box-shadow: -2px -1px 34px 0px rgba(6, 5, 5, 0.24);
+        -moz-box-shadow: -2px -1px 34px 0px rgba(6, 5, 5, 0.24);
+    }
+    .box:hover {
+        box-shadow: 0px 15px 49px rgba(0, 0, 0, 0.59);
+    }
+
+    /* Latest section - homepage  */
+    .homepage .latest .card {
+        width: 100%;
+        text-align: center;
+
+        margin-inline: auto;
+    }
+    /* img-preview margin-inline */
+    .homepage .latest .card .img-preview {
+        margin-inline: auto;
+    }
+
+    .homepage .latest .card .post-img {
+        width: 280px;
+        height: 200px;
+    }
+
+    /* Media section - homepage */
+    .homepage .media.col-sm-6,
+    .homepage .media.col-md-6 {
+        width: 50%;
+    }
+
+    /***********************************
+		About Page responsive styling
+	***********************************/
+    .about-image img {
+        width: 380px;
+        margin-top: 0em;
+        margin-left: 3em;
+    }
+    .aboutpage .about-image img {
+        width: 30em;
+        margin-left: 32px;
+    }
+    .about_text p {
+        color: rgb(41, 39, 39);
+        padding-right: 30px;
+        padding-left: 30px;
+        line-height: 1.6em;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .about-title h2 {
+        padding-left: 30px;
+    }
+
+    .about_text p {
+        color: rgb(41, 39, 39);
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-bottom: 18px;
+        margin-left: 0px;
+        margin-right: 0px;
+        line-height: 1.6em;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .mission img {
+        width: 40px;
+        height: 40px;
+        margin-left: 30px;
+    }
+
+    .about_text h2 {
+        padding-left: 30px;
+    }
+
+    .goals h2,
+    .goals img,
+    .goals p {
+        padding-left: 0px;
+    }
+
+    .partners .media_title::before {
+        left: 2.6em;
+        top: 0.5em;
+        height: 4px;
+        width: 112px;
+    }
+    .partners .media_title::after {
+        left: 17em;
+        top: 0.6em;
+        height: 4px;
+        width: 112px;
+    }
+
+    .partners-slider .slide img {
+        width: 205px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .subscribe input {
+        width: 162px;
+    }
+
+    .energy p {
+        padding-left: 0em;
+    }
+    /***********************************
+	What We do pages responsive styling
+	***********************************/
+    .section-done h2 {
+        padding-left: 2.8em;
+        font-size: 24px;
+    }
+    .energy {
+        width: 100%;
+        background: #f8f8f8;
+        padding-top: 3em;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .whatwedo-cta .cta-content {
+        margin-left: 27em;
+        padding-right: 3em;
+        padding-top: 3em;
+        width: 50%;
+    }
+
+    .whatwedo-cta {
+        height: 360px;
+    }
+    .section2 .climate-box {
+        padding-left: 0.1em;
+        padding-right: 4.1em;
+        margin-left: 0.6em;
+    }
+    .section2 .energy-box {
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+        margin-left: 0.6em;
+    }
+
+    /* responsiveness for sustainable dev,climate resilience..projects section */
+
+    .projects .media_title::before {
+        left: 2.6em;
+    }
+
+    .projects .media_title::after {
+        left: 14.6em;
+    }
+
+    .sustainable-dev .col-lg-4 p {
+        padding-top: 0.5em;
+    }
+    .events .top-content p {
+        padding-top: 2em;
+        margin-left: 30.6em;
+    }
+    .latest-row {
+        margin-left: 0px !important;
+        margin-right: 1em;
+    }
+    /***********************************
+		Latest page responsive styling
+	***********************************/
+    .latest-row .card {
+        margin-top: 1.6em;
+        margin-bottom: 2em;
+        margin-left: 0em;
+        width: 28em;
+    }
+
+    .latest-events .top-content a {
+        padding-left: 16em;
+        padding-top: 1em;
+    }
+
+    .news-sec .top-content h2,
+    .press .top-content h2 {
+        font-size: 26px;
+        padding-left: 0.1em;
+    }
+    .events .top-content h2,
+    .news-sec .top-content h2,
+    .press .top-content h2 {
+        font-size: 26px;
+        margin-left: 0.5em;
+    }
+    .press .top-content h2 {
+        padding-bottom: 0.6em;
+        font-size: 20px;
+    }
+    .news-sec {
+        margin-bottom: 4em;
+    }
+
+    .news-sec .top-content p {
+        padding-top: 2em;
+        margin-left: 31.3em;
+    }
+    .press .top-content p {
+        margin-left: 28em;
+    }
+
+    /******************************************
+		Powershift news page responsive styling
+	**********************************************/
+    .up-events .card {
+        width: 30em;
+        margin-left: 0.2em;
+    }
+    .up-events .card-img-top {
+        width: 30em;
+        margin-left: 0.2em;
+    }
+
+    .menu_container {
+        width: 100vw;
+        right: -100vw;
+    }
+    .menu_item a {
+        font-size: 20px;
+    }
+    .news-div .home {
+        height: 230px;
+    }
+    .news-div .home_container {
+        bottom: 47px;
+    }
+    .news-div .home_title {
+        font-size: 24px;
+    }
+    .news-div .breadcrumbs ul li,
+    .news-div .breadcrumbs ul li a {
+        top: -4em;
+        font-size: 12px;
+    }
+    .news {
+        padding-top: 34px;
+    }
+    .news_body {
+        padding-top: 47px;
+        padding-left: 30px;
+        padding-bottom: 44px;
+        padding-right: 30px;
+    }
+    .news_title a {
+        font-size: 24px;
+    }
+    .box {
+        padding-left: 25px;
+    }
+    .working_hours {
+        padding-right: 30px;
+    }
+
+    .events .top-content h2 {
+        font-size: 26px;
+        padding-left: 1.8em;
+    }
+    .events .top-content p {
+        padding-top: 2em;
+        margin-left: 30.6em;
+    }
+
+    .quote-card-slider {
+        margin-left: 4em;
+    }
+
+    element.style {
+        height: 50px;
+        width: 160px;
+    }
+
+    .get-in-touch .btn {
+        margin-top: 0.8em;
+        margin-right: -2em;
+        font-size: 13px;
+    }
+    .get-in-touch p {
+        color: rgb(41, 39, 39);
+        font-weight: 700;
+        font-size: 15px;
+        padding-left: 2em;
+    }
+
+    /******************************************
+		Gallery page responsive styling
+    **********************************************/
+    .gallery-page .other-imgs img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery-page .other-imgs2 img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery-page .blog-comment {
+        padding-left: 4px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .gallery-page .blog-author span {
+        color: #504e4e;
+        font-size: 12px;
+    }
+
+    .gallery-page .widget.widget_categories ul li {
+        width: 150px;
+        padding: 9px 3px 0 6px;
+        margin-left: 1em;
+    }
+
+    .gallery-page .category li > a {
+        padding-left: 1px;
+        font-size: 12px;
+    }
+    .gallery-page .blogs h2 {
+        margin-top: 1em;
+    }
+    .gallery-page .blogs {
+        margin-top: 0em;
+    }
+    .gallery-page .category {
+        margin-top: 0em;
+    }
+
+    .gallery-page .btn-part .post-social-wrapper {
+        margin-left: 23px;
+    }
+    .gallery-page .comment h3 {
+        margin-left: 0.9em;
+    }
+    .gallery-page .comment-sec .top-part .user-comment {
+        margin-left: -1px;
+    }
+    .gallery-page .top-part .reply-text a,
+    .gallery-page .reply-part a {
+        float: right;
+        font-weight: 500;
+        margin-top: -15px;
+    }
+    .gallery-page .user-comment .name,
+    .name {
+        line-height: 0.5;
+    }
+    .gallery-page .blogs h2 {
+        font-size: 16px;
+    }
+    .gallery-page .blog-details {
+        margin-top: 20px;
+    }
+    .gallery-page .album-details {
+        margin-top: 2em;
+    }
+
+    /******************************************
+		Event detail page responsive styling
+	**********************************************/
+    .event-detail .sidebar {
+        margin-top: 2em;
+        margin-left: 3.6em;
+        margin-right: 3em;
+    }
+    .event-detail .twitter-section {
+        margin-right: 3em;
+    }
+    .sidebar .contact-div {
+        width: 270px;
+        height: 280px;
+        margin-bottom: 2em;
+    }
+
+    .other-events .card {
+        width: 17em;
+    }
+
+    .other-events .card .card-title {
+        font-size: 14px;
+    }
+
+    .other-events .card .post-img {
+        width: 17em;
+        height: 190px;
+    }
+
+    /******************************************
+		Blog page responsive styling
+	**********************************************/
+    .btn-part .post-social-wrapper {
+        margin-left: 14em;
+    }
+    .widget.widget_categories ul li {
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        border-bottom: 1px solid #fff;
+        background: #f2f2f2;
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        margin: 0;
+        padding: 9px 3px 0 0;
+        color: #EE1C25;
+    }
+    iframe {
+        margin-left: 0em;
+    }
+
+    .past_events .card {
+        width: 17em;
+    }
+
+    .event-detail .btn-search {
+        width: 20em;
+        height: 3.5em;
+    }
+
+    .about-careers img {
+        margin-top: 2em;
+        margin-bottom: 6em;
+        height: 26em;
+        width: 34em;
+    }
+    .about-careers {
+        width: 100%;
+        background: #faf6f6;
+        padding-top: 1em;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .gallery-page .blog-comment {
+        padding-left: 8em;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .features .container {
+        max-width: 540px;
+    }
+
+    /******************************************
+		Media page responsive styling
+	**********************************************/
+
+    .featured {
+        padding-top: 2em;
+    }
+
+    .featured-options {
+        margin-left: 3px;
+    }
+    .featured-options .btn {
+        height: 2.4em;
+        width: 9.6em;
+        font-size: 10px;
+        padding-left: 2px;
+    }
+
+    .featured-options #videos-btn {
+        margin-left: 9em;
+    }
+
+    .mediapage iframe {
+        width: 34em;
+        height: 280px;
+        margin-left: 0.1em;
+    }
+
+    .mediapage .videos-div iframe {
+        width: 18em;
+        height: 180px;
+        margin-left: 0.1em;
+    }
+
+    .mediapage .card {
+        width: 15.8em;
+        margin-left: 0.1em;
+    }
+
+    .mediapage .pod-div .card {
+        width: 100%;
+        margin-left: 0.1em;
+        -webkit-box-shadow: 0px -2px 15px -7px rgba(0, 0, 0, 0.99);
+        box-shadow: 0px -2px 15px -7px rgba(0, 0, 0, 0.99);
+        background-color: #f2f2f2;
+    }
+    .gallery-page .category h5 {
+        text-align: left;
+        margin-left: 5em;
+    }
+
+    #audio-player-container audio {
+        width: 100%;
+    }
+
+    .photos-div .card-div {
+        background-color: black;
+        width: 220px;
+        height: 120px;
+    }
+    .photos-div .card-title {
+        font-size: 15px;
+    }
+
+    .photos-div img {
+        width: 236px;
+        height: 150px;
+        margin-top: 1em;
+        margin-left: 0em;
+    }
+
+    .pod-div {
+        margin-top: 1.6em;
+    }
+    /******************************************
+		Teams page responsive styling
+	**********************************************/
+    .team-details .card-img-top {
+        width: 330px;
+        height: 300px;
+    }
+    .member-desc .styled-h2 {
+        text-align: left;
+        margin-left: 0.7em;
+    }
+    .member-desc .col-lg-4 p {
+        text-align: left;
+        margin-bottom: 2em;
+        margin-left: 1em;
+        font-size: 15px;
+    }
+    .bio-info {
+        color: black;
+        font-size: 16px;
+        margin-left: 10em;
+    }
+
+    .copyright {
+        width: 100%;
+        background: #F3DEE4;
+    }
+
+    .card .row {
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .homepage .latest .fa {
+        display: none;
+    }
+    .card-body2 {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+    }
+    .latest .card-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+        margin-inline: auto;
+    }
+}

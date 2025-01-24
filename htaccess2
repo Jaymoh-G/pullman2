@@ -1,0 +1,16 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>
+
+#AuthType Basic
+#AuthName "Power"
+#AuthUserFile /home/najenga/public_html/public/.htpassword
+#require valid-user
+
+# END WordPress
+
+

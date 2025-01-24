@@ -1,0 +1,71 @@
+/* Created by: Oscar */
+/* Created 01/31/2022 */
+/* Add all styles for desktop here. With larger screen greater than 1200. Styling should be the same */
+/* If you're working on a desktop styling. Push the styles on responsive1600.css here also. If possible :) */
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+    .bio-info {
+        color: black;
+        font-size: 16px;
+        margin-left: 0em;
+        padding-top: 0.5em;
+    }
+    .member-bio {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        transform: translate(0%, 0%);
+        text-align: center;
+        width: 100%;
+    }
+    .member-bio .bio-info {
+        padding-top: 25%;
+    }
+    .team-card {
+        position: relative;
+        width: 100%;
+    }
+    .team-details .card-img-top {
+        margin-left: 0em;
+        margin-top: 0em;
+        margin-right: 0em;
+        max-width: 100%;
+    }
+    .other-teams .team-name {
+        margin-left: 0em;
+    }
+    .director-img {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .director-bio {
+        padding: 0 25px;
+    }
+    .other-teams .team-name h2 {
+        font-family: "Montserrat", sans-serif;
+        color: #EE1C25;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-left: 0em;
+        padding-top: 0.4em;
+    }
+    .other-teams .team-name p {
+        font-family: "Montserrat", sans-serif;
+        color: #2b2828;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 0em;
+        margin-left: 0em;
+    }
+
+    /* Publications page */
+    .publicationspage .folder-sec {
+        display: inline-flex;
+    }
+    .publication .media-subtitle {
+        height: auto !important;
+    }
+}

@@ -1,0 +1,247 @@
+@media only screen and (max-width: 280px) {
+    /***********************************
+		Top bar responsive styling
+	***********************************/
+    #topbar .container {
+        margin-left: 1em;
+    }
+    /***********************************
+		Homepage responsive styling
+	***********************************/
+    .card-text {
+        margin-right: 4em;
+    }
+    .card-img-top {
+        width: 70%;
+    }
+
+    .cta_button {
+        margin-left: 4em;
+    }
+
+    .media_title::before {
+        left: 1.4em;
+        top: 0.6em;
+        width: 66px;
+    }
+
+    .media_title::after {
+        left: 9em !important;
+        top: 0.6em;
+        width: 66px !important;
+    }
+    .publication {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        margin-left: 0em;
+        margin-top: 2em;
+        text-align: left;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+    }
+    .pub_videos iframe {
+        margin-top: 6em;
+        margin-right: 4em;
+        text-align: center;
+        width: 8em;
+        height: 14em;
+    }
+    .pdficon-img {
+        width: 4em;
+        height: 4em;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .media-subtitle {
+        height: auto !important;
+    }
+
+    .about_image1 img,
+    .about_image2 img {
+        display: none;
+    }
+    .about_image2 img {
+        width: 50px;
+        height: 50px;
+        top: -30px;
+        left: 32px;
+    }
+    .about_button {
+        margin-left: 3em;
+    }
+    .about .col-xs-8 {
+        width: 100%;
+    }
+    .homepage .latest .media_title::after {
+    }
+    .subscribe .subscribe-btn {
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+    /***********************************
+		About Page responsive styling
+	***********************************/
+
+    .partners .media_title::before {
+        left: 1.7em;
+        width: 66px;
+    }
+
+    .partners .media_title::after {
+        left: 10em !important;
+        width: 70px !important;
+    }
+
+    /***********************************
+	What We do pages responsive styling
+	***********************************/
+    /* responsiveness for sustainable dev,climate resilience..projects section */
+    .whatwedo-cta {
+        height: 380px;
+    }
+    .section2 {
+        padding-left: 1em;
+    }
+    .projects .media_title::before {
+        left: 0.6em;
+        width: 50px;
+    }
+
+    .projects .media_title::after {
+        left: 7.9em;
+        width: 50px;
+    }
+
+    .carousel-item .proj-name {
+        left: 0em;
+    }
+
+    /***********************************
+		Powershift news page responsive styling
+	***********************************/
+    .latest-row .card-body {
+        padding: 0;
+    }
+    .latest-row .card-text {
+        margin-right: 0em;
+    }
+
+    .latest-row .card {
+        width: 15em;
+    }
+    .latest-events .top-content a {
+        padding-left: 4.4em;
+    }
+
+    .news-sec .top-content p {
+        margin-left: 6.1em;
+    }
+    .press .top-content h2 {
+        font-size: 20px;
+    }
+    .press .top-content p {
+        padding-top: 0.01em;
+        margin-left: 1.8em;
+    }
+
+    .past_events .card,
+    .past_events .card-img-top {
+        width: 16em;
+    }
+
+    .bio-info {
+        color: black;
+        font-size: 16px;
+        margin-left: 10em;
+    }
+    .team-details .card-img-top {
+        margin-left: 1em;
+    }
+    .other-teams .team-name {
+        margin-left: 1em;
+    }
+    .other-teams .styled-h2 {
+        font-size: 20px;
+    }
+
+    /***********************************
+		Media page responsive styling
+	***********************************/
+    .featured-options .btn {
+        font-size: 6px;
+        padding-left: 1px;
+        margin-left: 1px;
+        height: 2.6em;
+        padding-top: 2px;
+        width: 9.5em;
+    }
+
+    .mediapage iframe {
+        width: 16em;
+        height: 220px;
+        margin-left: 0.1em;
+    }
+
+    .photos-div img {
+        width: 220px;
+        height: 120px;
+        margin-top: 1em;
+    }
+    .photos-div .card-div {
+        width: 220px;
+        height: 120px;
+    }
+    .featured-options #videos-btn {
+        margin-left: 6.5em;
+    }
+    .mediapage .videos-div iframe {
+        width: 16em;
+    }
+
+    .photos-div .card-div {
+        background-color: black;
+        width: 14em;
+    }
+    .photos-div .card-text {
+        font-size: 8px;
+        font-weight: 600;
+    }
+    .featured-options #videos-btn {
+        margin-left: 0em;
+    }
+
+    .mediapage #videos .col-sm-12 {
+        padding-left: 2px;
+    }
+    .mediapage .pod-div .card {
+        width: 100%;
+    }
+
+    /***********************************
+		Gallery page responsive styling
+	***********************************/
+
+    .gallery-page .top-part .reply-text a,
+    .gallery-page .reply-part a {
+        float: right;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .gallery-page .category h5 {
+        text-align: left;
+        margin-left: 1em;
+    }
+
+    .gallery-page .category .btn {
+        width: 100% !important;
+    }
+    .gallery-page .category li > a {
+        padding-left: 1px;
+        font-size: 8px;
+    }
+}

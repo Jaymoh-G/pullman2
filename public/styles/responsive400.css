@@ -1,0 +1,333 @@
+@media only screen and (max-width: 400px) {
+    /***********************************
+		Top bar responsive styling
+	***********************************/
+    #topbar .social-links {
+        margin-right: 0.1em;
+    }
+    /***********************************
+		Homepage responsive styling
+	***********************************/
+
+    .mission .row {
+        margin-left: 0em;
+        margin-right: 0em;
+    }
+
+    .homepage .latest .media_title::after {
+    }
+
+    .footer_about_list li span {
+        font-size: 11px !important;
+    }
+    .footer_about_list li span .rose {
+        margin-left: 3.2em !important;
+    }
+    .footer_about_text p {
+        font-size: 12px !important;
+    }
+    .footer_about_logo {
+        margin-left: 0px !important;
+    }
+    .copyright {
+        width: 100%;
+        background: #F3DEE4;
+        height: 150px;
+    }
+    .styled-h2 {
+        font-size: 24px;
+    }
+    .subscribe .name,
+    .subscribe .mail {
+        width: 14em;
+        font-size: 11px;
+    }
+    .publication {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        margin-left: 0em;
+        margin-top: 2em;
+        text-align: left;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+        width: 100%;
+        text-align: center;
+    }
+    .pub_videos iframe {
+        margin-top: 8em;
+        height: 14em;
+    }
+    .pdficon-img {
+        width: 7em;
+        height: 8em;
+    }
+    .media_title::before {
+        left: 2.4em;
+        top: 0.5em;
+        width: 84px;
+    }
+
+    .media_title::after {
+        left: 12.9em !important;
+        top: 0.5em;
+        width: 84px !important;
+    }
+    .publication {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        margin-left: 0em;
+        margin-top: 2em;
+        text-align: left;
+        align-items: center;
+    }
+    .pub_text {
+        margin-left: 0.4em;
+    }
+
+    .pdficon-img {
+        width: 7em;
+        height: 8em;
+    }
+
+    .joinUs_button {
+        /* margin-left: 6em; */
+    }
+    .join_us p {
+        padding-right: 0.4em !important;
+    }
+    .card-img-top {
+        width: 100%;
+    }
+    .card {
+        margin-left: 0.5em;
+    }
+    .cta_button {
+        margin-left: 7.8em;
+    }
+    .about .col-xs-8 {
+        width: 60%;
+    }
+    .about .col-xs-4 {
+        margin-right: 4px;
+        width: 30%;
+    }
+    .about_content {
+        margin-left: 0em;
+        font-size: 12px;
+        text-align: left;
+    }
+    .about_button {
+        margin-left: 0em;
+    }
+    .about_images {
+        margin-top: 8.2em;
+    }
+
+    /***********************************
+		About Page responsive styling
+	***********************************/
+    .about-image img {
+        margin-left: 0.7em;
+        width: 290px;
+        position: relative;
+    }
+
+    .aboutpage .about-text p {
+        padding-right: 2em;
+        padding-left: 2em;
+    }
+
+    .partners .media_title::before {
+        left: 30em;
+        top: 0.5em;
+        height: 4px;
+        width: 76px;
+    }
+    .partners.media_title::after {
+        left: 10.7em !important;
+        top: 0.6em;
+        height: 4px;
+        width: 66px !important;
+    }
+
+    .subscribe input {
+        width: 172px;
+    }
+    .subscribe .mail {
+        width: 70%;
+    }
+    .partners .fa-chevron-left {
+        padding-right: 8em;
+    }
+
+    .partners .fa-chevron-right {
+        padding-right: 2em;
+    }
+    /***********************************
+	What We do pages responsive styling
+	***********************************/
+    .energy p {
+        padding-left: 1.2em;
+        font-size: 13px;
+        margin-left: 0em;
+        margin-right: 0em;
+    }
+
+    .energy h2 {
+        font-size: 16px;
+    }
+
+    .section-done h2 {
+        padding-left: 1.8em;
+        font-size: 15px;
+    }
+
+    .whatwedo-cta .cta-content {
+        margin-left: 2em;
+        padding-right: 1em;
+        padding-top: 2em;
+        width: 90%;
+    }
+
+    /* responsiveness for sustainable dev,climate resilience..projects section */
+    .projects .media_title::before {
+        left: 1.2em;
+        width: 80px;
+    }
+
+    .projects .media_title::after {
+        left: 9.8em;
+        width: 80px;
+    }
+
+    /***********************************
+		Latest page responsive styling
+	***********************************/
+    .latest-row .card {
+        width: 20em;
+    }
+    .latest-events .top-content h2 {
+        padding-left: 0.4em;
+        font-size: 28px;
+    }
+
+    .latest-events .top-content a {
+        padding-left: 9.4em;
+        /* padding-top: 1em; */
+    }
+    .latest-events .top-content p {
+        margin-top: 3em;
+    }
+    .news-sec .top-content h2,
+    .press .top-content h2 {
+        font-size: 22px;
+    }
+
+    .news-sec .top-content p {
+        margin-left: 10.6em;
+        padding-top: 1.4em;
+    }
+
+    .press .top-content p {
+        padding-top: 0.1em;
+        margin-left: 5em;
+    }
+
+    .past_events .card,
+    .past_events .card-img-top {
+        width: 21em;
+    }
+
+    .blog-comment {
+        padding-left: 0.9em;
+    }
+    .other-events .card {
+        width: 18em;
+    }
+    .other-events .card .post-img {
+        height: 220px;
+    }
+
+    .subscribe .name,
+    .subscribe .mail {
+        width: 19em;
+        font-size: 11px;
+    }
+
+    .subscribe .mail {
+        /* margin-left: 1.5em; */
+    }
+
+    /***********************************
+	Publications page responsive styling
+	***********************************/
+    .publicationspage .featured h2 {
+        font-size: 20px;
+    }
+
+    .mediapage .videos-div iframe {
+        width: 19em;
+        height: 170px;
+        margin-left: 0.1em;
+    }
+
+    .mediapage iframe {
+        width: 20em;
+        height: 220px;
+        margin-left: 0.1em;
+    }
+
+    /***********************************
+	Media page responsive styling
+	***********************************/
+    .featured-options .btn {
+        width: 9.6em;
+        font-size: 8px;
+        padding-left: 1px;
+    }
+    .photos-div .card-div {
+        background-color: black;
+        width: 17em;
+    }
+
+    .gallery-page .category h5 {
+        text-align: left;
+        margin-left: 2em;
+    }
+
+    .gallery-page .category .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 1px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .gallery-page .category .btn {
+        width: 100% !important;
+    }
+    .gallery-page .category li > a {
+        padding-left: 1px;
+        font-size: 10px;
+    }
+
+    .copyright {
+        width: 100%;
+        background: #F3DEE4;
+    }
+
+    .quote-card .quote-text {
+        position: absolute;
+        background-color: #228c22;
+        left: 9em;
+        top: 1em;
+        z-index: 1;
+        height: 100%;
+        max-width: 50%;
+        padding-left: 5px;
+        padding-right: 4px;
+        padding-top: 6px;
+    }
+}

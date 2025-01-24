@@ -106,33 +106,7 @@
                                             @enderror
 
                                      <div class="row">
-                                          <div class="form-group col-lg-6">
-                                            <label class="col-sm-4 control-label" >
-                                               Work (PDF)
-                                            </label>
-                                            @if ($publicationId)
-                                                 <div class="col-sm-8">
-                                                    <a href={{"/".$temp_file_path}} download>Current: {{$title}}</a>
-                                                </div>
-                                            @endif
-
-                                            <div class="col-sm-8">
-                                                <input
-                                                    type="file"
-                                                    class="form-control"
-                                                    id = "publicationPdfFile"
-                                                    wire:change="$emit('handlePdfFileUpload')"
-                                                    {{$publicationId?'':'required'}}
-                                                />
-                                            </div>
-                                             @error('file_path')
-                                            <span
-                                                class="error text-danger"
-                                                >{{ $message }}</span
-                                            >
-                                        @enderror
-                                        </div>
-                                           <div class="form-group col-lg-6">
+                                           <div class="form-group col-lg-12">
                                             <label class="col-sm-4 control-label" >
                                                 Work Cover Image
                                             </label>

@@ -42,13 +42,9 @@ class PublicationCreateComponent extends Component
             $publication = Publication::find($this->publicationId);
             $this->title = $publication->title;
             $this->description = $publication->description;
-            $this->file_path = $publication->file_path;
-            $this->temp_file_path = $publication->file_path;
             $this->publication_image = $publication->publication_image;
             $this->temp_publication_image = $publication->publication_image;
             $this->category_names = unserialize($publication->category_names);
-            $this->file_size = $publication->file_size;
-
         }
     }
 
@@ -65,9 +61,7 @@ class PublicationCreateComponent extends Component
         $data = [
             'title' => $this->title,
             'description' => $description,
-            'file_path' => $this->file_path,
             'publication_image' => $this->publication_image,
-            'file_size' => $this->file_size,
             'slug' => Str::slug($this->title),
             'category_names'=>is_array($this->category_names)?serialize($this->category_names):$this->category_names,
         ];

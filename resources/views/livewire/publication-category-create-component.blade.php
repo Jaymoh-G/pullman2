@@ -67,7 +67,11 @@
                                                     type="submit"
                                                     class="btn btn-default"
                                                 >
-                                                    Create
+                                                    @if($categoryId)
+                                                        Update
+                                                    @else
+                                                        Create
+                                                    @endif
                                                 </button>
                                             </div>
                                         </div>

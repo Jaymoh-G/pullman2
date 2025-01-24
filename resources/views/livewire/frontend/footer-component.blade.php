@@ -59,14 +59,14 @@
                         <ul class="footerlinks">
                             <li>
                                 <a
-                                    href="{{route('frontend.whatWeDo.page',['slug'=>'excavation-and-dumping'])}}"
-                                    >Excavation and Dumping</a
+                                    href="{{route('frontend.whatWeDo.page',['slug'=>'excavation-and-demolition'])}}"
+                                    >Excavation and Demolition</a
                                 >
                             </li>
                             <li>
                                 <a
-                                    href="{{route('frontend.whatWeDo.page',['slug'=>'water-and-sewer-works'])}}"
-                                    >Water and Sewer Works</a
+                                    href="{{route('frontend.whatWeDo.page',['slug'=>'civil-works'])}}"
+                                    >Civil Works</a
                                 >
                             </li>
 

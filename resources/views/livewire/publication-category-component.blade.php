@@ -65,7 +65,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href={{'/admin/publications/category/create?id='.$category->id}}
+                                                        href={{'/admin/our-work/category/create?id='.$category->id}}
                                                         class="btn btn-success btn-sm rounded-0"
                                                         data-toggle="tooltip"
                                                         data-placement="top"

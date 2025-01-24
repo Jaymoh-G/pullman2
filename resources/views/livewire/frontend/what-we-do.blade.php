@@ -64,30 +64,27 @@
         <div class="row">
             <div class="climate-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <img src="images/water.png" alt="" srcset="" />
-                <h2 style="color:#111112;">Water and Sewer Works</h2>
+                <h2 style="color:#111112;">Civil Works</h2>
                 <p>
-                From installation to maintenance, our Water and Sewer
-                works service offers comprehensive solutions for the
-                development and upkeep of vital infrastructure, ensuring
-                the efficient flow of essential utilities.
+                    Our civil projects vary. We would love to discuss your project. Kindly get in touch for  estimates.
                 </p>
                 <a
-                    href="{{route('frontend.whatWeDo.page',['slug'=>'water-and-sewer-works'])}}"
+                    href="{{route('frontend.whatWeDo.page',['slug'=>'civil-works'])}}"
                     class="btn text-white"
                     >Learn More</a
                 >
             </div>
             <div class="energy-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <img src="images/earthworks.png" alt="" srcset="" />
-                <h2 style="color:#111112;">Excavation and Dumping</h2>
+                <h2 style="color:#111112;">Excavation and Demolition</h2>
                 <p>
                 With our expertise in earthmoving and waste management,
-                we provide reliable solutions for excavation and dumping
+                we provide reliable solutions for excavation and demolition
                 needs, guaranteeing safe and efficient handling of
                 materials to meet project requirements.
                 </p>
                 <a
-                    href="{{route('frontend.whatWeDo.page',['slug'=>'excavation-and-dumping'])}}"
+                    href="{{route('frontend.whatWeDo.page',['slug'=>'excavation-and-demolition'])}}"
                     class="btn text-white"
                     >Learn More</a
                 >

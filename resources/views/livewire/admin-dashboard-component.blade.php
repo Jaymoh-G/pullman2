@@ -85,7 +85,7 @@
                                     ></i>
                                 </div>
                                 <div class="stat-content dib">
-                                    <div class="stat-text">Excavation and Dumping</div>
+                                    <div class="stat-text">Excavation and Demolition</div>
                                     <div class="stat-digit">
                                         {{ $blogCategoryCount }}
                                     </div>

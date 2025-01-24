@@ -48,7 +48,7 @@
         @else
 
         <title>Pullman Excavators Kenya</title>
-        <meta name="description" content="Looking for excavation and dumping services in Nairobi, Kenya? Call: +254 726 634 673" />
+        <meta name="description" content="Looking for excavation and demolition services in Nairobi, Kenya? Call: +254 726 634 673" />
         @endif
         <!-- Google Tag Manager -->
         <script>
@@ -227,7 +227,7 @@
             @livewire('frontend.footer-component')
         </div>
 
-        <!-- START Bootstrap-Cookie-Alert -->
+        <!-- START Bootstrap-Cookie-Alert 
         <div
             class="alert text-center cookiealert"
             style="color: #111112"
@@ -235,18 +235,18 @@
         >
             <b>Cookie consent. </b> We are using cookies to ensure you get the
             best experience on our website.
-            <!-- <a
+            <a
                 href="https://cookiesandyou.com/"
                 style="color: #EE1C25"
                 target="_blank"
                 >Learn more</a
-            > -->
+            > 
 
             <button type="button" class="btn btn-primary btn-sm acceptcookies">
                 Allow Cookies
             </button>
         </div>
-        <!-- END Bootstrap-Cookie-Alert -->
+        END Bootstrap-Cookie-Alert -->
 
         <!-- <script type="text/javascript">
             function googleTranslateElementInit() {

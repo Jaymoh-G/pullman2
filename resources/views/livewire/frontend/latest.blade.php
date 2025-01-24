@@ -91,8 +91,8 @@
         <div class="container-full news-sec">
             <div class="container">
                 <div class="top-content">
-                    <h2>Water and Sewer Works</h2>
-                    <a href="{{ route('frontend.blog.categories',['categorySlug'=>'water-and-sewer-works']) }}"> <p>View all</p></a>
+                    <h2>Civil Works</h2>
+                    <a href="{{ route('frontend.blog.categories',['categorySlug'=>'civil-works']) }}"> <p>View all</p></a>
                 </div>
                 <div class="row latest-row">
                     @forelse($WaterSewer as $new)
@@ -140,8 +140,8 @@
         <div class="container-full press">
             <div class="container">
                 <div class="top-content">
-                    <h2> Excavation and Dumping</h2>
-                    <a href="{{ route('frontend.blog.categories',['categorySlug'=>'excavation-and-dumping']) }}"><p>View all</p></a>
+                    <h2> Excavation and Demolition</h2>
+                    <a href="{{ route('frontend.blog.categories',['categorySlug'=>'excavation-and-demolition']) }}"><p>View all</p></a>
                 </div>
                 <div class="row latest-row">
                     @forelse($Excavation as $pr)

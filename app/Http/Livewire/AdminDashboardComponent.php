@@ -20,8 +20,8 @@ class AdminDashboardComponent extends Component
 
         $userCount = Subscription::count();
         $publicationCount = Publication::count();
-        $blogCategoryCount = Blog::join('categories', 'categories.id', '=', 'blogs.category_id')->where('categories.name', 'Excavation and Dumping')->count();
-        $inNewsCount = Blog::join('categories', 'categories.id', '=', 'blogs.category_id')->where('categories.name', 'Water and sewer works')->count();
+        $blogCategoryCount = Blog::join('categories', 'categories.id', '=', 'blogs.category_id')->where('categories.name', 'Excavation and Demolition')->count();
+        $inNewsCount = Blog::join('categories', 'categories.id', '=', 'blogs.category_id')->where('categories.name', 'Civil Works')->count();
         $equipCount = Blog::join('categories', 'categories.id', '=', 'blogs.category_id')->where('categories.name', 'Equipment and Machine Hire')->count();
         $eventCount = Event::count();
         $users = User::paginate(4);

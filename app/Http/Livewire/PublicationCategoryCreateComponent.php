@@ -40,6 +40,6 @@ class PublicationCategoryCreateComponent extends Component
             PublicationCategory::create($data);
             session()->flash('message', 'Category created successfully');
         }
-        redirect()->to('admin/publications/category/list');
+        redirect()->to('admin/our-work/category/list');
     }
 }

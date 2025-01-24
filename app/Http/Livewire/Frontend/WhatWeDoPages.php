@@ -25,9 +25,9 @@ class WhatWeDoPages extends Component
         $this->slug = $slug;
         $this->whatWeDos = WhatWeDo::where('slug', $this->slug)->first();
         $this->metaDescription = $this->whatWeDos->metaDescription;
-        $this->title = $this->whatWeDos->title;
+        $this->title = trim($this->whatWeDos->title);       
 
-        $this->publications = Publication::where('category_names', 'like', "%{$this->whatWeDos->title}%")->take(5)->get();
+        $this->publications = Publication::where('category_names', 'like', "%{$this->title}%")->take(5)->get();
         $this->latestPressRelease = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
             ->where('categories.name', '=', 'Press Releases')

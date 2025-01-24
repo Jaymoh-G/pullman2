@@ -20,7 +20,7 @@ class Latest extends Component
 
     $Excavation = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
       ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
-      ->where('categories.name', '=', 'Excavation and Dumping')
+      ->where('categories.name', '=', 'Excavation and Demolition')
       ->orderBy('blogs.updated_at', 'desc')
 
       ->take(3)->get();
@@ -46,6 +46,6 @@ class Latest extends Component
 
       ->take(3)->get();
     $events = Event::orderBy('date_from', 'desc')->take(3)->get();
-    return view('livewire.frontend.latest', ['News' => $News, 'events' => $events, 'WaterSewer' => $WaterSewer, 'Excavation' => $Excavation, 'Equipment' => $Equipment, 'Materials' => $Materials])->layout('layouts.web', ['activePage' => 'latest', 'title' => "Latests on Pullman Excavators Kenya", 'metaDescription' => 'Latest on water and sewer works,Excavation and dumping, Equipment and machine hire, building material supply']);
+    return view('livewire.frontend.latest', ['News' => $News, 'events' => $events, 'WaterSewer' => $WaterSewer, 'Excavation' => $Excavation, 'Equipment' => $Equipment, 'Materials' => $Materials])->layout('layouts.web', ['activePage' => 'latest', 'title' => "Latests on Pullman Excavators Kenya", 'metaDescription' => 'Latest on Civil Works,Excavation and demolition, Equipment and machine hire, building material supply']);
   }
 }

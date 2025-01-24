@@ -49,12 +49,12 @@ class HomepageComponent extends Component
             ->take(3)->latest('blogs.updated_at')->get();
         $this->latestPowershiftNews = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
-            ->where('categories.name', '=', 'Excavation and Dumping')
+            ->where('categories.name', '=', 'Excavation and Demolition')
             ->take(2)->latest('blogs.updated_at')->get();
 
         $this->Water = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
-            ->where('categories.name', '=', 'Water and Sewer Works')
+            ->where('categories.name', '=', 'Civil Works')
             ->take(2)->latest('blogs.updated_at')->get();
 
         $this->News = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')

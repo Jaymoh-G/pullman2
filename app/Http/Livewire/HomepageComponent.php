@@ -42,6 +42,9 @@ class HomepageComponent extends Component
         $this->sectionTwoData = $this->getSectionData('Our Mission');
         $this->sectionThreeData = $this->getSectionData('Join Us');
         $this->sliders = PageSectionData::where('type', 'slider')->orderBy('created_at', 'asc')->take(4)->get();
+        echo "<pre>";
+        print_r($this->sliders);
+        exit;
         $this->petition = Petition::orderBy('id', 'desc')->take(1)->get();
         $this->latestPressRelease = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')

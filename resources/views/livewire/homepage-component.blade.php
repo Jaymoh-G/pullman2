@@ -76,7 +76,7 @@
                                 >
                                     <img
                                         class="box_icon"
-                                        src="{{'/'.$slider->icon}}"
+                                        src="{{ asset($slider->icon) }}"
                                         alt="{{$slider->name}}"
                                         srcset=""
                                     />
@@ -127,14 +127,14 @@
                     >
                         <div class="about_image1">
                             <img
-                                src="{{'/'.$sectionOneData->image}}"
+                                src="{{ asset('storage/' . $sectionOneData->image) }}"
                                 alt="{{$sectionOneData->name}}"
                             />
                         </div>
 
                         <div class="about_image2">
                             <img
-                                src="{{'/'.$sectionOneData->icon}}"
+                                src="{{ asset('storage/' . $sectionOneData->icon) }}"
                                 alt="{{$sectionOneData->name}}"
                             />
                         </div>
@@ -205,7 +205,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{'/'.$Water[0]->image}}"
+                                    src="{{ asset($Water[0]->image) }}"
                                     alt="Card image cap"
                                     width="330"
                                     height="247"
@@ -263,7 +263,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{'/'.$latestPowershiftNews[0]->image}}"
+                                    src="{{ asset($latestPowershiftNews[0]->image) }}"
                                     alt="Card image cap"
                                     width="330"
                                     height="247"
@@ -321,7 +321,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{'/'.$latestPressRelease[0]->image}}"
+                                    src="{{ asset($latestPressRelease[0]->image) }}"
                                     alt="Card image cap"
                                     width="330"
                                     height="247"
@@ -405,7 +405,7 @@
                                 <div class="pub_img">
                                     <img
                                         class="pdficon-img"
-                                        src="{{'/'.$publication->image}}"
+                                        src="{{ asset($publication->image) }}"
                                         alt=""
                                         srcset=""
                                         width="150px"

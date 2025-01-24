@@ -49,7 +49,7 @@
                     @forelse ($sliders as $slider)
                     <div
                         class="slide slide-{{$loop->index+1}}"
-                        style="background-image: url(/public/{{$slider->image}});"
+                        style="background-image: url('{{ asset($slider->image) }}');"
                     >
                         <div class="slide-content"></div>
                     </div>

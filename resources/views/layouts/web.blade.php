@@ -268,7 +268,7 @@
                 asset('assets/plugins/parallax-js-master/parallax.min.js')
             }}"></script>
         <script src="{{ asset('assets/js/custom.js') }}"></script>
-        <script src="/js/lightbox.js"></script>
+        <script src="{{ asset('/js/lightbox.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
         <script

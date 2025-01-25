@@ -182,7 +182,7 @@
                 <div class="slider">
                   <img
                       class="pdficon-img"
-                      src="{{'/'.$publication->publication_image}}"
+                      src="{{ asset($publication->publication_image) }}"
                       alt="{{$publication->title}}"
                       srcset=""
                       style="object-fit: cover;"

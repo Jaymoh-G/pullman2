@@ -125,17 +125,6 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="{{ asset('test-1.css') }}"
-        />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="{{ asset('/test-2.css') }}"
-        />
-
-        <link
-            rel="stylesheet"
-            type="text/css"
             href="{{ asset('styles/responsive991.css') }}"
         />
 

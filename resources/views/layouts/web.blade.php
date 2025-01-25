@@ -125,12 +125,12 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="{{ asset('styles/test-1.css') }}"
+            href="{{ asset('test-1.css') }}"
         />
         <link
             rel="stylesheet"
             type="text/css"
-            href="{{ asset('styles/test-2.css') }}"
+            href="{{ asset('/test-2.css') }}"
         />
 
         <link

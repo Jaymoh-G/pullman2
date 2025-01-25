@@ -146,7 +146,7 @@
                 </p>
             </div>
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-              <img src="/{{$this->whatWeDos->image}}" style="width:475px" alt="{{$this->whatWeDos->image}}" srcset="">
+              <img src="{{ asset('/{{$this->whatWeDos->image}}') }}" style="width:475px" alt="{{$this->whatWeDos->image}}" srcset="">
             </div>
           </div>
         </div>

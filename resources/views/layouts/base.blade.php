@@ -78,6 +78,14 @@
             rel="stylesheet"
         />
         <link
+            href="{{ asset('test.css') }}"
+            rel="stylesheet"
+        />
+        <link
+            href="{{ asset('/tests.css') }}"
+            rel="stylesheet"
+        />
+        <link
             href="{{ asset('assets/css/lib/helper.css') }}"
             rel="stylesheet"
         />

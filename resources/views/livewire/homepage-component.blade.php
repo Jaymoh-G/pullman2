@@ -42,6 +42,8 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('assets/css/homepage-slider.css') }}" />
+    <link rel="stylesheet" href="{{ asset('public/assets/css/homepage-slider.css') }}" />
+    
     <div class="homepage">
         <div class="home">
             <div class="home_slider_container">

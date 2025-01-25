@@ -122,6 +122,16 @@
             type="text/css"
             href="{{ asset('styles/responsive991-1199.css') }}"
         />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ asset('styles/test-1.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ asset('styles/test-2.css') }}"
+        />
 
         <link
             rel="stylesheet"

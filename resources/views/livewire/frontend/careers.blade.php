@@ -1,5 +1,5 @@
 <div>
-    <link rel="stylesheet" type="text/css" href="styles/pages.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/pages.css') }}" />
     <style>
         @media only screen and (max-width: 600px) {
             .no-open-positions{

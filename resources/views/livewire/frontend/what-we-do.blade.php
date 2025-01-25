@@ -1,6 +1,6 @@
 <!-- <link rel="stylesheet" type="text/css" href="styles/renewable energy.css" /> -->
-<link rel="stylesheet" type="text/css" href="styles/responsive.css" />
-<link rel="stylesheet" type="text/css" href="styles/pages.css" />
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/pages.css') }}" />
 
 <div class="home whatwedo-page">
     <div

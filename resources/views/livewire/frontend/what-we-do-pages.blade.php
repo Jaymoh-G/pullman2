@@ -1,7 +1,7 @@
 <div>
-    <link rel="stylesheet" type="text/css" href="styles/services_responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/pages.css" />
-    <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/services_responsive.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/pages.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/carousel.css') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link

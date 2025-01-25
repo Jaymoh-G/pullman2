@@ -9,7 +9,7 @@
       height: 180px;
   }
 </style>
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}"/>
 <div class="news-div">
       <div class="home">
         <div

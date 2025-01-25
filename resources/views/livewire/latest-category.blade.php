@@ -1,5 +1,5 @@
 <div class="news-div">
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}" />
     <style>
         .post-img {
             object-fit: cover;

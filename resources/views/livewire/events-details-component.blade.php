@@ -230,7 +230,7 @@ event-detail .twitter-section {
     </div>
   </div>
 
-  <!-- SUBSCRIBE SECTION -->    <link rel="stylesheet" type="text/css" href="styles/main_styles.css"/>
+  <!-- SUBSCRIBE SECTION -->    <link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}"/>
 
   <div class="subscriber">
 		<div class="container text-center">

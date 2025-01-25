@@ -1,5 +1,5 @@
 <div>
-    <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/carousel.css') }}" />
     <style>
         .styled-h2 {
             color: #EE1C25;

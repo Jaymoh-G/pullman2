@@ -150,7 +150,7 @@
             <div
                 class="cta_background parallax-window"
                 data-parallax="scroll"
-                data-image-src="images/Pullman-Exacavators-Kenya-modified-1.png"
+                data-image-src="asset('images/Pullman-Exacavators-Kenya-modified-1.png') }}"
                 data-speed="0.8"
             ></div>
             <div class="container">

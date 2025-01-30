@@ -228,11 +228,11 @@
                             </h2>
                         </div>
                     </div>
-                </div>
+                                    </div>
                 <div class="row">
                     <!-- About Content -->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                          <img src="{{ asset('/sectionData/Mbuti.jpg') }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                                          <img src="{{ asset('/storage/sectionData/Mbuti.jpg') }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     width: 90px;
     height: 90px;
 ">
@@ -244,7 +244,7 @@
                         <h3 style="color: black">Engineer Mbuti</h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <img src="{{ asset('/storage/sectionData/Jalango.jpg') }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                        <img src="{{ asset('storage/sectionData/Jalango.jpg') }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     width: 90px;
     height: 90px;
 ">

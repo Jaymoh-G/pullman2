@@ -55,7 +55,7 @@
                     @forelse($News as $pr)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
-                            <img class="card-img-top" src="{{"/".$pr->image}}"
+                            <img class="card-img-top" src="{{asset("/".$pr->image)}}"
                             alt="{{$pr->title}}" />
                             <div class="card-body">
                                 <p class="card-text-head">
@@ -98,7 +98,8 @@
                     @forelse($WaterSewer as $new)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
-                            <img class="card-img-top" src="{{'/'.$new->image}}"
+                            <img class="card-img-top" src="{{asset('/'.$new->image)}}"
+
 
                             alt="{{$new->title}}" />
                             <div class="card-body">
@@ -147,7 +148,7 @@
                     @forelse($Excavation as $pr)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
-                            <img class="card-img-top" src="{{"/".$pr->image}}"
+                            <img class="card-img-top" src="{{asset("/".$pr->image)}}"
                             alt="{{$pr->title}}" />
                             <div class="card-body">
                                 <p class="card-text-head">
@@ -189,7 +190,7 @@
                     @forelse($Equipment as $new)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
-                            <img class="card-img-top" src="{{'/'.$new->image}}"
+                            <img class="card-img-top" src="{{asset('/'.$new->image)}}"
 
                             alt="{{$new->title}}" />
                             <div class="card-body">
@@ -238,7 +239,7 @@
                     @forelse($Materials as $new)
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="card">
-                            <img class="card-img-top" src="{{'/'.$new->image}}"
+                            <img class="card-img-top" src="{{asset('/'.$new->image)}}"
 
                             alt="{{$new->title}}" />
                             <div class="card-body">

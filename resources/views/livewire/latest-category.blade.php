@@ -58,7 +58,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <a  href="{{route('frontend.blog.details',['category'=>$blog->category->slug,'slug'=>$blog->slug])}}">
-                            <img class="card-img-top post-img" src="{{"/".$blog->image}}" alt="{{$blog->title}}" />
+                            <img class="card-img-top post-img" src="{{asset("/".$blog->image)}}" alt="{{$blog->title}}" />
                         </a>
                         <div class="card-body">
                             <p class="card-text-head">

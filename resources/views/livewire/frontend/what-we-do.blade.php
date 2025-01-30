@@ -12,7 +12,7 @@
                 rgba(0, 0, 0, 0.5)
             );
         "
-        data-image-src="{{ asset('images/power2.jpg') }}"
+        data-image-src="{{ asset('/images/power2.jpg') }}"
         data-speed="0.8"
     ></div>
     <div class="home_container">
@@ -117,7 +117,7 @@
                 >
             </div>
             <div class="energy-box col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            
+
                 <img src="{{ asset('images/materials.png') }}" alt="" srcset="" />
                 <h2 style="color:#111112;">Building Materials Supply</h2>
                 <p>

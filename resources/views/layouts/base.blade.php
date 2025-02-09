@@ -86,9 +86,7 @@
     </head>
     <body>
         <div
-            class="
-                sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures
-            "
+            class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures"
         >
             <div class="nano">
                 <div class="nano-content">
@@ -171,6 +169,11 @@
                                 ><i class="ti-bookmark"></i> Our Work</a
                             >
                         </li>
+                        <li>
+                            <a href="{{ route('testimonials.index') }}"
+                                ><i class="ti-bookmark"></i> Testimonials</a
+                            >
+                        </li>
 
                         @endif @if(Auth::user()->utype==='Editor' ||
                         Auth::user()->utype==='Admin' ||
@@ -215,12 +218,7 @@
                                         <i class="ti-angle-down f-s-10"></i>
                                     </span>
                                     <div
-                                        class="
-                                            drop-down
-                                            dropdown-profile
-                                            dropdown-menu
-                                            dropdown-menu-right
-                                        "
+                                        class="drop-down dropdown-profile dropdown-menu dropdown-menu-right"
                                     >
                                         <div class="dropdown-content-body">
                                             <ul>

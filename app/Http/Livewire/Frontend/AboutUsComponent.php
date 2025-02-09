@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Frontend;
 
 use Newsletter;
 use Livewire\Component;
+use App\Mail\ContactUsMail;
+use App\Models\Testimonial;
 use App\Mail\WelcomeSubscriber;
+use App\Models\PageSectionData;
 use Illuminate\Support\Facades\Mail;
 use App\Models\NewsletterSubscription;
-use App\Models\PageSectionData;
-use App\Mail\ContactUsMail;
 
 
 class AboutUsComponent extends Component
@@ -19,6 +20,7 @@ class AboutUsComponent extends Component
     public $message;
     public $whoWeAre;
     public $partners;
+    public $testimonials;
 
 
     public function mount()
@@ -29,6 +31,8 @@ class AboutUsComponent extends Component
         $this->ourMission = $this->getSectionData('Our mission');
         $this->ourVision = $this->getSectionData('Our vision');
         $this->ourGoals = $this->getSectionData('Our goals');
+        $this->testimonials = Testimonial::orderBy('id','desc')->take(2)->get();
+
     }
 
     public function render()

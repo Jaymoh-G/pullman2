@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Testimonial;
 use App\Http\Livewire\Datatable;
 use App\Http\Livewire\COPCategory;
 use App\Http\Livewire\JobComponent;
@@ -36,6 +37,8 @@ use App\Http\Livewire\AlbumPhotoComponent;
 use App\Http\Livewire\BlogCreateComponent;
 use App\Http\Livewire\PageCreateComponent;
 use App\Http\Livewire\TeamCreateComponent;
+use App\Http\Livewire\Testimonials\Create;
+use App\Http\Livewire\TestimonialsManager;
 use App\Http\Livewire\AlbumCreateComponent;
 use App\Http\Livewire\BlogCommentComponent;
 use App\Http\Livewire\EventCreateComponent;
@@ -81,10 +84,6 @@ use App\Http\Livewire\PublicationCategoryComponent;
 use App\Http\Livewire\HomepageSliderCreateComponent;
 use App\Http\Livewire\TeamComponent as BackendTeams;
 use App\Http\Livewire\MediaComponent as BackendMedia;
-use App\Http\Livewire\PageSectionDataCreateComponent;
-use App\Http\Livewire\Frontend\JobSinglePageComponent;
-use App\Http\Livewire\Frontend\PressReleasesComponent;
-use App\Http\Livewire\Frontend\SustainableDevelopment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,10 +96,15 @@ use App\Http\Livewire\Frontend\SustainableDevelopment;
 */
 
 // Sitemap
+use App\Http\Livewire\PageSectionDataCreateComponent;
+use App\Http\Livewire\Frontend\JobSinglePageComponent;
+use App\Http\Livewire\Frontend\PressReleasesComponent;
+use App\Http\Livewire\Frontend\SustainableDevelopment;
 use App\Http\Livewire\NewsletterSubscriptionComponent;
 use  \App\Http\Livewire\Frontend\FrontendMediaComponent;
 use App\Http\Livewire\PublicationCategoryCreateComponent;
 use App\Http\Livewire\Frontend\TeamComponent as FrontendTeams;
+use App\Http\Livewire\Frontend\TestimonialComponent;
 
 Route::get("/generate-sitemap", function () {
     SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
@@ -134,6 +138,8 @@ Route::get('/team/{slug}', \App\Http\Livewire\TeamBioComponent::class)->name('fr
 
 Route::get('/search', SearchComponent::class)->name('frontend.search');
 Route::get('/media/gallery/{albumId}', Gallery::class)->name('frontend.gallery');
+
+Route::get('/testimonials', TestimonialComponent::class)->name('frontend.testimonials');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -229,6 +235,15 @@ Route::middleware(['auth:sanctum', 'verified', 'authEditor'])->group(function ()
     // What we do backend routes
     Route::get('/admin/whatWeDo/list', WhatWeDoComponent::class)->name('admin.whatWeDo.list');
     Route::get('/admin/whatWeDo/create', WhatWeDoCreateComponent::class)->name('admin.whatWeDo.create');
+
+    //Testimonials
+    Route::get('/admin/testimonials', TestimonialsManager::class)->name('testimonials.index');
+    Route::get('/admin/testimonials/edit/{id}', TestimonialsManager::class)->name('admin.testimonials.edit');
+    Route::get('/admin/job/edit/{id}', JobCreateComponent::class)->name('admin.job.edit');
+
+
+
+    Route::get('/admin/testimonials/create', Create::class)->name('testimonials.create');
 });
 // Route::get('/page-not-found', PageNotFound::class)->name('page.not.found');
 // Route::fallback(function () {

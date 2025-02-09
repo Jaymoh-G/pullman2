@@ -17,6 +17,7 @@ use App\Mail\WelcomeSubscriber;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Livewire\ContactUs;
 use App\Mail\ContactUsMail;
+use App\Models\Testimonial;
 
 class HomepageComponent extends Component
 {
@@ -35,6 +36,7 @@ class HomepageComponent extends Component
     public $sectionTwoData;
     public $Water;
     public $News;
+    public $testimonial;
 
     public function mount()
     {

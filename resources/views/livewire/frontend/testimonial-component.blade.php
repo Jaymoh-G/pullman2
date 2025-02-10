@@ -122,13 +122,15 @@
                                           <img src="{{ asset($testimonial->image) }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     width: 150px;
     height: 90px;
-">
+    margin-bottom: 15px;
+"><h3 style="color: black">{{$testimonial->name}},{{$testimonial->position}}</h3>
                         <div class="about_text">
                       {{$testimonial->message}}
                         </div>
                            </br>
-                        <h3 style="color: black">{{$testimonial->name}},{{$testimonial->position}}</h3>
-                      
+                            </br>
+ </br>
+
                     </div>
                       @empty
               <p>No Testimonial found</p>

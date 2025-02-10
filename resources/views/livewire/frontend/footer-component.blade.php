@@ -9,7 +9,9 @@
                             <img
                                 style="height: 60px; width: 150px"
                                 class="ml-1"
-                                src="{{ asset('/images/logo_pullman-rsz.png') }}"
+                                src="{{
+                                    asset('/images/logo_pullman-rsz.png')
+                                }}"
                             />
                         </div>
                         <div class="footer_about_text">
@@ -46,6 +48,11 @@
                             <li>
                                 <a href="{{ route('frontend.contactUs') }}"
                                     >Contact Us</a
+                                >
+                            </li>
+                            <li>
+                                <a href="{{ route('frontend.testimonials') }}"
+                                    >Testimonials</a
                                 >
                             </li>
                         </ul>

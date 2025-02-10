@@ -1155,6 +1155,7 @@ section {
 }
 .about_text {
     margin-top: 24px;
+    margin-bottom: 50px;
 }
 .about_text p {
     color: rgb(41, 39, 39);

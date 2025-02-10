@@ -139,7 +139,7 @@ Route::get('/team/{slug}', \App\Http\Livewire\TeamBioComponent::class)->name('fr
 Route::get('/search', SearchComponent::class)->name('frontend.search');
 Route::get('/media/gallery/{albumId}', Gallery::class)->name('frontend.gallery');
 
-Route::get('/testimonials', TestimonialComponent::class)->name('frontend.testimonials');
+Route::get('/about-us/testimonials', TestimonialComponent::class)->name('frontend.testimonials');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

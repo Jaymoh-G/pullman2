@@ -38,8 +38,8 @@ class TestimonialsCreate extends Component
             $this->name = $testimonial->name;
             $this->description = $testimonial->description;
             $this->position = $testimonial->position;
-            $this->testimonialImage = $testimonial->testimonialImage;
-            $this->testimonialImageTemp = $testimonial->publication_image;
+            $this->testimonialImage = $testimonial->image;
+            $this->testimonialImageTemp = $testimonial->image;
         }
     }
 
@@ -59,8 +59,8 @@ class TestimonialsCreate extends Component
             'description' => $description,
             'image' => $this->testimonialImage 
         ];
-        // var_dump($data);
-        // exit;
+        var_dump($data);
+        exit;
 
         // Create or update the testimonial
         Testimonial::updateOrCreate(

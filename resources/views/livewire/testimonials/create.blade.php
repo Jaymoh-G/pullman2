@@ -29,15 +29,7 @@
                                 <div class="horizontal-form">
                                     <form class="form-horizontal" wire:submit.prevent="createTestimonial">
                                         @csrf
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter client name" wire:model="name" required />
-                                            </div>
-                                        </div>
-                                        @error('name')
-                                            <span class="error text-danger">{{ $message }}</span>
-                                        @enderror
+                                        
 
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Position</label>
@@ -62,7 +54,12 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label">Image</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" wire:model="image" />
+                                                <input
+                                                    type="file"
+                                                    class="form-control"
+                                                    id = "publicationImageFile"
+                                                    wire:change="$emit('handlepublicationImageFileUpload')"
+                                                    {{$testimonial_id?'':'required'}}/>
                                             </div>
                                         </div>
                                         @error('image')
@@ -92,4 +89,45 @@
     editor.on('change', function(event) {
         document.querySelector('[wire\\:model="message"]').value = event.editor.getData();
     });
+
+    document.addEventListener('livewire:load', () => {
+        console.log('hapa');
+        window.livewire.on('handlePdfFileUpload', () => {
+            let inputField = document.getElementById('publicationPdfFile')
+            try {
+                emitData(inputField);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+        window.livewire.on('handlepublicationImageFileUpload', () => {
+            console.log('here');
+            let inputField = document.getElementById('publicationImageFile')
+            try {
+                emitData(inputField);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
+
+    const getFileNameData = (inputField, file) => {
+        return {
+            file_name: file.name,
+            file_extension: file.name.split('.').pop(),
+            file_name_without_extension: file.name.split('.').shift(),
+            file_size: file.size,
+        };
+    }
+
+    const emitData = (inputField) => {
+        let file = inputField.files[0];
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            window.livewire.emit('set_file_data', getFileNameData(inputField, file));
+            window.livewire.emit('file_upload', reader.result)
+        }
+        reader.readAsDataURL(file);
+    }
+    
 </script>

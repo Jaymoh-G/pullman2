@@ -55,18 +55,6 @@ class TestimonialsManager extends Component
         }
     }
 
-    public function edit($id)
-    {
-        $testimonial = Testimonial::findOrFail($id);
-        $this->testimonial_id = $id;
-        $this->name = $testimonial->name;
-        $this->position = $testimonial->position;
-        $this->message = $testimonial->message;
-        $this->updateMode = true;
-
-
-    }
-
     public function update()
     {
         $this->validate([

@@ -84,6 +84,7 @@ use App\Http\Livewire\PublicationCategoryComponent;
 use App\Http\Livewire\HomepageSliderCreateComponent;
 use App\Http\Livewire\TeamComponent as BackendTeams;
 use App\Http\Livewire\MediaComponent as BackendMedia;
+use App\Http\Livewire\TestimonialsCreate;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -238,12 +239,11 @@ Route::middleware(['auth:sanctum', 'verified', 'authEditor'])->group(function ()
 
     //Testimonials
     Route::get('/admin/testimonials', TestimonialsManager::class)->name('testimonials.index');
-    Route::get('/admin/testimonials/edit/{id}', TestimonialsManager::class)->name('admin.testimonials.edit');
-    Route::get('/admin/job/edit/{id}', JobCreateComponent::class)->name('admin.job.edit');
-
-
-
-    Route::get('/admin/testimonials/create', Create::class)->name('testimonials.create');
+    Route::get('/admin/testimonials/edit/{id?}', TestimonialsCreate::class)->name('testimonials.edit');
+   
+     //Testimonials
+     Route::get('/admin/testimonials', TestimonialsManager::class)->name('testimonials.index');
+    //  Route::get('/admin/testimonials/edit/{id?}', TestimonialsCreate::class)->name('testimonials.edit');
 });
 // Route::get('/page-not-found', PageNotFound::class)->name('page.not.found');
 // Route::fallback(function () {

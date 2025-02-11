@@ -36,45 +36,46 @@
                                     <form
                                         enctype="multipart/form-data"
                                         class="form-horizontal"
-                                        wire:submit.prevent="createPublication(document.querySelector('#description').value)"
+                                        wire:submit.prevent="createTestimonial(document.querySelector('#description').value)"
                                     >
                                         @csrf
                                         <div class="form-group">
                                             <label
                                                 class="col-sm-2 control-label"
-                                                >Category</label
-                                            >
-                                            <div class="col-sm-10">
-                                                <select wire:model="category_names" class="form-control" id="category" multiple="multiple" style="height: 75pt" required>
-                                                    <option value="">Choose category</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{$category->name}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        @error('category_names')
-                                                <span
-                                                    class="error text-danger"
-                                                    >{{ $message }}</span
-                                                >
-                                            @enderror
-                                        <div class="form-group">
-                                            <label
-                                                class="col-sm-2 control-label"
-                                                >Title</label
+                                                >Name</label
                                             >
                                             <div class="col-sm-10">
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    placeholder="Enter title"
-                                                    wire:model="title"
+                                                    placeholder="Enter name"
+                                                    wire:model="name"
                                                     required
                                                 />
                                             </div>
                                         </div>
-                                        @error('title')
+                                        @error('name')
+                                            <span
+                                                class="error text-danger"
+                                                >{{ $message }}</span
+                                            >
+                                        @enderror
+                                        <div class="form-group">
+                                            <label
+                                                class="col-sm-2 control-label"
+                                                >Position</label
+                                            >
+                                            <div class="col-sm-10">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Enter position"
+                                                    wire:model="position"
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        @error('name')
                                             <span
                                                 class="error text-danger"
                                                 >{{ $message }}</span
@@ -108,11 +109,11 @@
                                      <div class="row">
                                            <div class="form-group col-lg-12">
                                             <label class="col-sm-4 control-label" >
-                                                Work Cover Image
+                                                Image
                                             </label>
-                                            @if ($publicationId)
+                                            @if ($testimonialId)
                                                  <div class="col-sm-6">
-                                                    <a href={{"/".$temp_publication_image}} download>Work image</a>
+                                                    <a href={{"/".$testimonialImageTemp}} download>Work image</a>
                                                 </div>
                                             @endif
 
@@ -120,12 +121,12 @@
                                                 <input
                                                     type="file"
                                                     class="form-control"
-                                                    id = "publicationImageFile"
-                                                    wire:change="$emit('handlepublicationImageFileUpload')"
-                                                    {{$publicationId?'':'required'}}
+                                                    id = "testimonialImageFile"
+                                                    wire:change="$emit('handleTestimonialImageFileUpload')"
+                                                    {{$testimonialId?'':'required'}}
                                                 />
                                             </div>
-                                             @error('publication_image')
+                                             @error('testimonialImageFile')
                                             <span
                                                 class="error text-danger"
                                                 >{{ $message }}</span
@@ -140,7 +141,7 @@
                                                     type="submit"
                                                     class="btn btn-default"
                                                 >
-                                                    {{ $publicationId ? "Update Work" : "Add Work" }}
+                                                    {{ $testimonialId ? "Update Work" : "Add Work" }}
                                                 </button>
                                             </div>
                                         </div>
@@ -160,17 +161,8 @@
             document.getElementById('description').value=event.editor.getData();
         });
         document.addEventListener('livewire:load', () => {
-            window.livewire.on('handlePdfFileUpload', () => {
-                let inputField = document.getElementById('publicationPdfFile')
-                try {
-                    emitData(inputField);
-                } catch (error) {
-                    console.error(error);
-                }
-            });
-            window.livewire.on('handlepublicationImageFileUpload', () => {
-                console.log(' here')
-                let inputField = document.getElementById('publicationImageFile')
+            window.livewire.on('handleTestimonialImageFileUpload', () => {
+                let inputField = document.getElementById('testimonialImageFile')
                 try {
                     emitData(inputField);
                 } catch (error) {

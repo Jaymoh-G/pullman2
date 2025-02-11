@@ -25,7 +25,7 @@
                                 <h4>Testimonials</h4>
 
 
-                                <a class="create" href="{{ route('testimonials.create') }}">
+                                <a class="create" href="{{ route('testimonials.edit') }}">
                                     <button class="btn btn-default">Create</button>
                                 </a>
                             </div>
@@ -54,7 +54,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.testimonials.edit', $review->id) }}" class="btn btn-success btn-sm">
+                                                        <a href="{{ route('testimonials.edit', $review->id) }}" class="btn btn-success btn-sm">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
                                                         <button class="btn btn-danger btn-sm" wire:click="showDeleteModal({{ $review->id }})">

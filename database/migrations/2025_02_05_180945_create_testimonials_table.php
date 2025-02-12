@@ -17,7 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('position')->nullable(); // e.g., CEO, Manager
-            $table->text('message');
+            $table->text('description');
             $table->string('image')->nullable(); // For profile picture
             $table->timestamps();
         });

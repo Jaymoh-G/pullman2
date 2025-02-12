@@ -240,10 +240,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authEditor'])->group(function ()
     //Testimonials
     Route::get('/admin/testimonials', TestimonialsManager::class)->name('testimonials.index');
     Route::get('/admin/testimonials/edit/{id?}', TestimonialsCreate::class)->name('testimonials.edit');
-   
-     //Testimonials
-     Route::get('/admin/testimonials', TestimonialsManager::class)->name('testimonials.index');
-    //  Route::get('/admin/testimonials/edit/{id?}', TestimonialsCreate::class)->name('testimonials.edit');
+
 });
 // Route::get('/page-not-found', PageNotFound::class)->name('page.not.found');
 // Route::fallback(function () {

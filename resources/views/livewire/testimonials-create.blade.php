@@ -113,7 +113,7 @@
                                             </label>
                                             @if ($testimonialId)
                                                  <div class="col-sm-6">
-                                                    <a href={{"/".$testimonialImageTemp}} download>Work image</a>
+                                                    <a href={{"/".$testimonialImageTemp}} download>Testimonal image</a>
                                                 </div>
                                             @endif
 
@@ -141,7 +141,7 @@
                                                     type="submit"
                                                     class="btn btn-default"
                                                 >
-                                                    {{ $testimonialId ? "Update Work" : "Add Work" }}
+                                                    {{ $testimonialId ? "Update Testimonal" : "Add Testimonal" }}
                                                 </button>
                                             </div>
                                         </div>

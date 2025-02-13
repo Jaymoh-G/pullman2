@@ -96,7 +96,7 @@
                     );
                 "
                 data-parallax="scroll"
-                data-image-src="images/power2.jpg"
+                data-image-src="{{ asset('/images/power2.jpg') }}"
                 data-speed="0.8"
             ></div>
 
@@ -125,7 +125,7 @@
     margin-bottom: 15px;
 "><h3 style="color: black">{{$testimonial->name}},{{$testimonial->position}}</h3>
                         <div class="about_text">
-                      {{$testimonial->message}}
+                      {{$testimonial->description}}
                         </div>
                            </br>
                             </br>

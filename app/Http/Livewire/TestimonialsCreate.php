@@ -59,8 +59,6 @@ class TestimonialsCreate extends Component
             'description' => $description,
             'image' => $this->testimonialImage 
         ];
-        var_dump($data);
-        exit;
 
         // Create or update the testimonial
         Testimonial::updateOrCreate(

@@ -177,7 +177,7 @@
                         class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start"
                     >
                         <div class="cr">
-                            Copyright &copy;2024 All rights reserved by
+                            Copyright &copy;2025 All rights reserved by
                             <a href="" target="_blank"
                                 ><span>Pullman Construction</span></a
                             >

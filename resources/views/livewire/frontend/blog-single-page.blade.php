@@ -76,7 +76,7 @@
                         </div>
 
                             <div class="fakeimg">
-                                <img src="{{"/".$blog->image}}" alt="{{$blog->title}}" srcset="" style="object-fit:cover; width:100%;">
+                                <img src="{{ asset($blog->image) }}" alt="{{$blog->title}}" srcset="" style="object-fit:cover; width:100%;">
                             </div>
                         <p class="cat-name"><i>Category : {{$blog->category->name}} | tags:
 

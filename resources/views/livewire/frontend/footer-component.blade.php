@@ -139,9 +139,9 @@
                                     ></i>
                                 </div>
 
-                                <a href="mailto:info@pullmanexcavatorskenya.com"
+                                <a href="mailto:pullmanexcavators@gmail.com"
                                     ><span
-                                        >info@pullmanexcavatorskenya.com</span
+                                        >pullmanexcavators@gmail.com</span
                                     ></a
                                 >
                             </li>

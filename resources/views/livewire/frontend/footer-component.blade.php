@@ -7,11 +7,12 @@
                     <div class="footer_about footer_column">
                         <div class="footer_about_logo">
                             <img
-                                style="height: 60px; width: 150px"
                                 class="ml-1"
-                                src="{{
-                                    asset('/images/logo_pullman-rsz.png')
-                                }}"
+                                src="{{ asset('images/logo_pullman_header.png') }}"
+                                alt="Pullman Construction & Equipment Hiring"
+                                width="351"
+                                height="272"
+                                style="height: 64px; width: auto"
                             />
                         </div>
                         <div class="footer_about_text">

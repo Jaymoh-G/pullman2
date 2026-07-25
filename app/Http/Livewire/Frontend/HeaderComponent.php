@@ -19,7 +19,10 @@ class HeaderComponent extends Component
         $this->activePage = $activePage;
         $this->categories = Category::all();
         $this->publication_categories = PublicationCategory::all();
-        $this->whatWeDos = WhatWeDo::orderBy('created_at', 'desc')->get();
+        $this->whatWeDos = WhatWeDo::query()
+            ->whereNotIn('slug', ['machinery-repair-parts-supply'])
+            ->orderBy('created_at', 'desc')
+            ->get();
 
     }
 

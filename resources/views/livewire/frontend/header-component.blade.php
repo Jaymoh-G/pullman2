@@ -105,7 +105,13 @@
     <div class="container d-flex align-items-center justify-content-between">
 
        <h2 class="logo"><a href="{{route('homepage.index')}}">
-            <img style="height:60px; width:150px;" src="{{ asset('images/logo_pullman-rsz.png') }}">
+            <img
+              src="{{ asset('images/logo_pullman_header.png') }}"
+              alt="Pullman Construction & Equipment Hiring"
+              width="351"
+              height="272"
+              style="height:88px; width:auto;"
+            >
           </a></h2>
           <div class="mobile-nav hamburger ml-auto"><i class="open-menu fa fa-bars" aria-hidden="true"></i></div>
           <nav id="navbar" class="navbar">

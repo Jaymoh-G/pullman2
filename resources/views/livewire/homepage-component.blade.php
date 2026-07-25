@@ -40,8 +40,72 @@
                 margin-top: 19px;
             }
         }
+
+        .home_slider_container {
+            position: relative;
+        }
+
+        .home-slider-phone {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            color: #fff;
+            font-family: "Lato", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            white-space: nowrap;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 4px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+            animation: phone-pulse 1.6s ease-in-out infinite;
+        }
+
+        .home-slider-phone:hover,
+        .home-slider-phone:focus {
+            color: #fff;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .home-slider-phone .fa-phone {
+            font-size: 1.1em;
+        }
+
+        @keyframes phone-pulse {
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.08);
+                opacity: 0.85;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .home-slider-phone {
+                font-size: 18px;
+                padding: 10px 16px;
+                gap: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .home-slider-phone {
+                animation: none;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="{{ asset('assets/css/homepage-slider.css') }}" />    
+    <link rel="stylesheet" href="{{ asset('assets/css/homepage-slider.css') }}?v=2" />
     <div class="homepage">
         <div class="home">
             <div class="home_slider_container">
@@ -57,6 +121,10 @@
                     <p>No slider found</p>
                     @endforelse
                 </div>
+                <a href="tel:+254726634673" class="home-slider-phone" aria-label="Call Us +254 726 634 673">
+                    <i class="fa fa-phone"></i>
+                    <span>Call Us +254 726 634 673</span>
+                </a>
             </div>
         </div>
 
@@ -64,9 +132,9 @@
 
         <div class="boxes">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     @forelse ($sliders as $slider)
-                    <div class="col-lg-3 col-sm-6 box_col">
+                    <div class="col-lg-4 col-md-4 col-sm-6 box_col">
                         <a href="{{$slider->link}}">
                             <div
                                 class="box working_hours slide-{{$loop->index+1}}-box"

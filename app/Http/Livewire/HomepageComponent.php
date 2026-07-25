@@ -74,7 +74,7 @@ class HomepageComponent extends Component
     {
         return view('livewire.homepage-component')->layout('layouts.web', [
             'activePage' => 'home',
-            'title' => 'Excavator Hire & Earthworks Nairobi | Pullman Excavators Kenya',
+            'title' => '+254726 634 673 | Equipment Hire',
             'metaDescription' => 'Pullman Excavators Kenya provides excavation, demolition, equipment hire, and building materials supply across Nairobi and Kenya.',
         ]);
     }

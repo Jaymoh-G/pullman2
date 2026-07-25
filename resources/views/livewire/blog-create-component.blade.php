@@ -37,10 +37,30 @@
     <script src="{{ asset('assets/js/lib/jquery.min.js') }}"></script>
     <script>
         const editor = CKEDITOR.replace('body');
-        editor.on('change', function(event){
-            // @this.set('body', event.editor.getData());
-            document.getElementById('body').value=event.editor.getData();
+        editor.on('change', function () {
+            document.getElementById('body').value = editor.getData();
         });
+
+        const getBlogBodyContent = () => {
+            if (typeof CKEDITOR !== 'undefined' && CKEDITOR.instances.body) {
+                return CKEDITOR.instances.body.getData();
+            }
+            const bodyField = document.getElementById('body');
+            return bodyField ? bodyField.value : '';
+        };
+
+        const bindSaveBlogButton = () => {
+            const saveBtn = document.getElementById('save-blog-btn');
+            if (!saveBtn || saveBtn.dataset.bound === '1') {
+                return;
+            }
+            saveBtn.dataset.bound = '1';
+            saveBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                @this.call('saveBlog', getBlogBodyContent());
+            });
+        };
 
         document.addEventListener('livewire:load', () => {
             window.livewire.on('handleblogImageUpload', () => {
@@ -51,7 +71,9 @@
                     console.error(error);
                 }
             });
+            bindSaveBlogButton();
         });
+        bindSaveBlogButton();
 
         const getFileNameData = (inputField, file) => {
             return {
@@ -71,26 +93,6 @@
             }
             reader.readAsDataURL(file);
         }
-
-        // $(document).ready(function() {
-
-
-        //     $('#category').change(function() {
-        //         toggleShowSubcategory();
-        //     });
-
-        //     const toggleShowSubcategory = () => {
-        //         let categorySlug = $('#category').attr('category-slug');
-
-        //         if (categorySlug=="cop27"){
-        //             $('.subcategory-wrapper').show();
-        //         }else{
-        //                console.log(categorySlug);
-        //             $('.subcategory-wrapper').hide();
-        //         }
-        //     }
-        //      toggleShowSubcategory();
-        // });
     </script>
 </div>
 

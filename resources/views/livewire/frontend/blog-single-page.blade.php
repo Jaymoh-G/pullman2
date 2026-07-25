@@ -92,13 +92,6 @@
                         </i> </p>
 
                         <div class="about_text"> {!!$blog->body!!}</div>
-                        <div style="text-align: center;">
-                            @if ($blog->link)
-                                <a href="{{$blog->link}}" class="btn btn-lg btn-success">
-                                    Endorse This Treaty
-                                </a>
-                            @endif
-                        </div>
 
                     </div>
                     <div class="comment pt-5">

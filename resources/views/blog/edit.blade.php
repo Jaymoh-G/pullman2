@@ -7,7 +7,8 @@
     <div class="horizontal-form">
         <form
             class="form-horizontal"
-            wire:submit.prevent="saveBlog(document.querySelector('#body').value)"
+            wire:submit.prevent="saveBlog"
+            onsubmit="return false;"
         >
             <div class="form-group">
                 <label class="col-sm-2 control-label">Title</label>
@@ -157,14 +158,11 @@
                 <label class="col-sm-2 control-label">Body </label>
                 <div class="col-sm-10">
                     <textarea
-                        wire:key="editor-{{ now() }}"
                         id="body"
                         cols="63"
                         rows="10"
                         placeholder="Blog content."
-                    >
-                        {!! $body !!}</textarea
-                    >
+                    >{!! $body !!}</textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -184,7 +182,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">
+                    <button type="button" class="btn btn-default" id="save-blog-btn" wire:loading.attr="disabled">
                         {{ $blogId ? "Update" : "Save" }}
                     </button>
                 </div>

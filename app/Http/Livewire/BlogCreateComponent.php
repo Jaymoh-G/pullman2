@@ -77,8 +77,12 @@ class BlogCreateComponent extends Component
         return view('livewire.blog-create-component')->layout('layouts.base');
     }
 
-    public function saveBlog($bodyContent)
+    public function saveBlog($bodyContent = null)
     {
+        if ($bodyContent !== null) {
+            $this->body = $bodyContent;
+        }
+
         $this->validate([
             'title' => 'required|min:3|max:255',
             'metaDescription' => 'required|min:3|max:158',
@@ -95,7 +99,7 @@ class BlogCreateComponent extends Component
             'title' => $this->title,
             'metaDescription' => $this->metaDescription,
             'slug' => $this->slug,
-            'body' => $bodyContent,
+            'body' => $this->body,
             'author' => Auth::user()->name,
             'category_id' => $this->category_id,
             'subcategory_id' => $this->subcategory_id,

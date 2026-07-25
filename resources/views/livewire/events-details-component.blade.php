@@ -68,7 +68,7 @@ event-detail .twitter-section {
       <div class="container">
           <div class="row">
               <div class="col-lg-9 col-md-8">
-                  <img class="top-img" src="{{'/'.$event->image}}" alt="{{$event->title}}" srcset="" style="object-fit: contain; width:100%;" alt="" srcset="">
+                  <img class="top-img" src="{{ '/'.$event->image }}" alt="{{ $event->name ?? $event->title }}" style="object-fit: contain; width:100%;" loading="lazy">
                   <div>
                       <h3>{{$event->title}}</h3>
                       <div class="container parent-div">
@@ -186,7 +186,7 @@ event-detail .twitter-section {
                   <div >
                       <div class="contact-div">
                           <h4>How can we help you?</h4>
-                          <p>Please let us know if you have a question, want to leave a comment, or would like further information about Power Shift Africa.</p>
+                          <p>Please let us know if you have a question, want to leave a comment, or would like further information about Pullman Excavators Kenya.</p>
                           <a href="{{route('frontend.contactUs')}}" target="_blank" rel="noopener noreferrer"><button class="btn btn-contact">Contact Us</button></a>
                       </div>
 
@@ -204,7 +204,7 @@ event-detail .twitter-section {
         @forelse ($otherEvents as $event)
           <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
             <div class="card">
-              <img class="post-image post-img" src="{{'/'.$event->image}}" alt="{{$event->title}}" srcset=""  alt="" srcset="">
+              <img class="post-image post-img" src="{{ '/'.$event->image }}" alt="{{ $event->name ?? $event->title }}" loading="lazy">
               <p class="power-title">{{$event->name}}</p>
               <div class="container">
                 <div class="row">

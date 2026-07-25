@@ -36,13 +36,22 @@ class JobSinglePageComponent extends Component{
     public function mount($slug){
         $this->jobSlug = request('slug');
         $this->job = Job::where('slug', $this->jobSlug)->first();
+
+        if (!$this->job) {
+            abort(404);
+        }
+
         $this->jobId = $this->job->id;
         $this->categories = Category::all();
     }
 
     public function render(){
         $Jobs = Job::all();
-        return view('livewire.frontend.job-single-page-component',['Jobs'=>$Jobs])->layout('layouts.web',);
+        return view('livewire.frontend.job-single-page-component', ['Jobs' => $Jobs])->layout('layouts.web', [
+            'activePage' => 'joinUs',
+            'title' => $this->job->title . ' | Careers | Pullman Excavators',
+            'metaDescription' => \Illuminate\Support\Str::limit(strip_tags($this->job->description ?? ('Apply for ' . $this->job->title . ' at Pullman Excavators Kenya')), 155),
+        ]);
     }
 
     public function apply($id){        

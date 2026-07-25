@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <!-- <div class="home_title"><span>Power Shift</span> Latest </div> -->
+                            <!-- <div class="home_title"><span>Pullman</span> Latest </div> -->
                             <div class="breadcrumbs">
                                 <ul>
                                     <li><a href="{{route('homepage.index')}}">Home</a></li>
@@ -147,7 +147,7 @@
                                     <h5 class="widget_title">Categories</h5>
                                         <ul>
                                             <li class="cat-item cat-item-1">
-                                                <a href="#">Power Shift News</a>
+                                                <a href="#">Pullman News</a>
                                             </li>
                                            
 
@@ -155,7 +155,7 @@
                                         <h5 class="widget_title">Recent Posts</h5>
                                         <ul>
                                             <li class="cat-item cat-item-1">
-                                                <a href="#">Power Shift News</a><br>
+                                                <a href="#">Pullman News</a><br>
                                                 <a href="#">Climate News</a><br>
                                                 <a href="#">Climate change</a>
                                             </li>

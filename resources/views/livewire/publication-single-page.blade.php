@@ -1,4 +1,12 @@
 <div class="blog-section publicationspage">
+    @include('partials.seo.article', [
+        'articleTitle' => $publication->title,
+        'articleDescription' => \Illuminate\Support\Str::limit(strip_tags($publication->description ?? $publication->title), 155),
+        'articleImage' => $publication->publication_image ?? null,
+        'articlePublished' => $publication->created_at,
+        'articleModified' => $publication->updated_at,
+        'articleUrl' => route('frontend.publications.detail', ['slug' => $publication->slug]),
+    ])
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <style>
@@ -51,7 +59,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <!-- <div class="home_title"><span>Power Shift</span> Latest </div> -->
+                            <!-- <div class="home_title"><span>Pullman</span> Latest </div> -->
                             <div class="breadcrumbs">
                                 <ul>
                                     <li>

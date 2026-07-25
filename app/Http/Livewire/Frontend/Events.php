@@ -23,7 +23,11 @@ class Events extends Component
         $this->pastEvents = Event::where('date_to', '<=', Carbon::now()->subDay())->orderBy('date_from', 'desc')->take(6)->get();
     }
     public function render(){
-        return view('livewire.frontend.events')->layout('layouts.web',['activePage'=>'latest']);
+        return view('livewire.frontend.events')->layout('layouts.web', [
+            'activePage' => 'latest',
+            'title' => 'Events | Pullman Excavators Kenya',
+            'metaDescription' => 'Upcoming and past events from Pullman Excavators Kenya.',
+        ]);
     }
  function mailchimpSubscribe(){
         $this->validate([

@@ -27,7 +27,7 @@ class AboutUsComponent extends Component
     {
         $this->partners = PageSectionData::where('type', 'partner')->orderBy('id', 'desc')->get();
         $this->whoWeAre = $this->getSectionData('Who we are');
-        $this->foundingDirector = $this->getSectionData("Power Shift Africa's founding director");
+        $this->foundingDirector = $this->getSectionData('founding director');
         $this->ourMission = $this->getSectionData('Our mission');
         $this->ourVision = $this->getSectionData('Our vision');
         $this->ourGoals = $this->getSectionData('Our goals');
@@ -37,7 +37,11 @@ class AboutUsComponent extends Component
 
     public function render()
     {
-        return view('livewire.frontend.about-us-component')->layout('layouts.web', ['activePage' => 'aboutUs', 'title' => "Hire Excavators Nairobi Kenya, 0726634673, Rock Breaker, Equipment", 'metaDescription' => 'Pullman Excavators Nairobi Kenya is an Excavators hire Company, 0726634673 offering services like Rock Breaker Hire, Equipment Hire, Dam Excavation...']);
+        return view('livewire.frontend.about-us-component')->layout('layouts.web', [
+            'activePage' => 'aboutUs',
+            'title' => 'About Pullman Excavators Kenya | Excavation & Construction',
+            'metaDescription' => 'Learn about Pullman Excavators Kenya — excavation, demolition, equipment hire, and building materials supply in Nairobi and across Kenya.',
+        ]);
     }
 
     function resetInput()

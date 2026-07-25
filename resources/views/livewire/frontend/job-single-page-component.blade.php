@@ -1,4 +1,12 @@
 <div class="blog-section">
+    @include('partials.seo.job-posting', [
+        'jobTitle' => $job->title,
+        'jobDescription' => strip_tags($job->description ?? $job->title),
+        'jobPosted' => $job->created_at,
+        'jobDeadline' => $job->deadline,
+        'jobLocation' => $job->location ?? 'Nairobi',
+        'jobEmploymentType' => strtoupper(str_replace(' ', '_', $job->job_type ?? 'FULL_TIME')),
+    ])
     <style>
         .hide {
             display: none;
@@ -22,7 +30,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <!-- <div class="home_title"><span>Power Shift</span> Latest </div> -->
+                            <!-- <div class="home_title"><span>Pullman</span> Latest </div> -->
                             <div class="breadcrumbs">
                                 <ul>
                                     <li>

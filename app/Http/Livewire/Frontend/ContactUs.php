@@ -14,7 +14,10 @@ class ContactUs extends Component
     public $phone;
 
     public function render(){
-        return view('livewire.frontend.contact-us')->layout('layouts.web',['title' => "Contact Pullman Excavators Kenya", 'metaDescription' => 'Get In Touch']);
+        return view('livewire.frontend.contact-us')->layout('layouts.web', [
+            'title' => 'Contact Pullman Excavators Kenya',
+            'metaDescription' => 'Contact Pullman Excavators Kenya for excavation, demolition, equipment hire, and building materials. Call +254 726 634 673.',
+        ]);
     }
 
     public function send(){

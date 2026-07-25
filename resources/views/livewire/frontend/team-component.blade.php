@@ -192,8 +192,8 @@
                         >
                             <img
                                 src="{{ asset('images/PSATeam.jpg') }}"
-                                alt=""
-                                srcset=""
+                                alt="Pullman Excavators Kenya team"
+                                loading="lazy"
                             />
                         </div>
                     </div>

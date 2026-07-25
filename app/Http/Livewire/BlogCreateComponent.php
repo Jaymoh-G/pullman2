@@ -164,11 +164,7 @@ class BlogCreateComponent extends Component
     }
 
     private function decideToShowSubcategory($subcategoryName){
-        if ($subcategoryName == 'COP27') {
-            $this->showSubcategory = true;
-        } else {
-            $this->showSubcategory = false;
-            $this->subcategory_id = null;
-        }
+        $this->showSubcategory = false;
+        $this->subcategory_id = null;
     }
 }

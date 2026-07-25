@@ -2,16 +2,13 @@
 
 use App\Models\Testimonial;
 use App\Http\Livewire\Datatable;
-use App\Http\Livewire\COPCategory;
 use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\TagComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\PageComponent;
-use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Livewire\AlbumComponent;
 use App\Http\Livewire\EventComponent;
-use App\Http\Livewire\Frontend\Cop27;
 use App\Http\Livewire\LatestCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Frontend\Events;
@@ -51,13 +48,11 @@ use App\Http\Livewire\Frontend\PageNotFound;
 use App\Http\Livewire\PublicationSinglePage;
 use App\Http\Livewire\SubscriptionComponent;
 use App\Http\Livewire\EventsDetailsComponent;
-use App\Http\Livewire\Frontend\COPSinglePage;
 use App\Http\Livewire\Frontend\WhatWeDoPages;
 use App\Http\Livewire\PartnerCreateComponent;
 use App\Http\Livewire\AdminDashboardComponent;
 use App\Http\Livewire\CategoryCreateComponent;
 use App\Http\Livewire\Frontend\BlogSinglePage;
-use App\Http\Livewire\Frontend\PowerShiftNews;
 use App\Http\Livewire\HomepageSliderComponent;
 use App\Http\Livewire\JobApplicationComponent;
 use App\Http\Livewire\PetitionCreateComponent;
@@ -107,20 +102,19 @@ use App\Http\Livewire\PublicationCategoryCreateComponent;
 use App\Http\Livewire\Frontend\TeamComponent as FrontendTeams;
 use App\Http\Livewire\Frontend\TestimonialComponent;
 
-Route::get("/generate-sitemap", function () {
-    SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
-    // dd(config('app.url'));
-});
 // Frontend Routes
 Route::get('/', HomepageComponent::class)->name('homepage.index');
 Route::get('/about-us', AboutUsComponent::class)->name('frontend.aboutus');
 Route::get('/what-we-do', WhatWeDo::class)->name('frontend.whatWeDo');
+Route::redirect('/what-we-do/machinery-repair-parts-supply', '/what-we-do', 301);
 Route::get('/what-we-do/{slug}', WhatWeDoPages::class)->name('frontend.whatWeDo.page');
 Route::get('/latest', Latest::class)->name('frontend.latest');
 
 Route::get('/latest/our-work/{categorySlug}', LatestCategory::class)->name('frontend.blog.categories');
-Route::get('/COP28/{subCategorySlug}', COPCategory::class)->name('frontend.cop.categories');
-Route::get('/COP28', Cop27::class)->name('frontend.cop27');
+
+// Legacy COP URLs → What We Do (permanent)
+Route::redirect('/COP28', '/what-we-do', 301);
+Route::redirect('/COP28/{any}', '/what-we-do', 301)->where('any', '.*');
 
 Route::get('/events', Events::class)->name('frontend.events');
 Route::get('/events/all', AllEventsComponent::class)->name('frontend.events.all');
@@ -131,7 +125,6 @@ Route::get('/join-us', Careers::class)->name('frontend.careers');
 Route::get('/join-us/careers/{slug}', JobSinglePageComponent::class)->name('frontend.careers.details');
 Route::get('/contact-us', ContactUs::class)->name('frontend.contactUs');
 Route::get('/latest/{category}/{slug}', BlogSinglePage::class)->name('frontend.blog.details');
-Route::get('/COP28/{category}/{slug}', COPSinglePage::class)->name('frontend.cop.details');
 
 Route::get('/events/details/{slug}', EventsDetailsComponent::class)->name('frontend.event.details');
 Route::get('/team', FrontendTeams::class)->name('frontend.team');

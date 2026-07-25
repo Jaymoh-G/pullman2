@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <!-- <div class="home_title"><span>Power Shift</span> Latest </div> -->
+                            <!-- <div class="home_title"><span>Pullman</span> Latest </div> -->
                             <div class="breadcrumbs">
                                 <ul>
                                     <li><a href="{{route('homepage.index')}}">Home</a></li>

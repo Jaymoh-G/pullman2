@@ -126,7 +126,8 @@
                                             <img
                                                 src="{{'/'.$album->cover_image}}"
                                                 class="card-img-top"
-                                                alt="..."
+                                                alt="{{ $album->title }}"
+                                                loading="lazy"
                                             />
                                             <div class="card-body">
                                                 <h5 class="card-title">

@@ -42,17 +42,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        @if(isset($title))
-        <title>{{ $title }}</title>
-        <meta
-            name="description"
-            content="{{ isset($metaDescription) ? $metaDescription : $title }}"
-        />
-        @else
-
-        <title>Pullman Excavators Kenya</title>
-        <meta name="description" content="Looking for excavation and demolition services in Nairobi, Kenya? Call: +254 726 634 673" />
+        @php
+            $pageTitle = $title ?? 'Pullman Excavators Kenya';
+            $pageDescription = $metaDescription ?? ($title ?? 'Excavation, demolition, equipment hire, and building materials supply in Nairobi, Kenya. Call +254 726 634 673.');
+            $canonicalUrl = request()->url();
+            $defaultOgImage = asset('images/logo_pullman-rsz.png');
+            $pageOgImage = isset($ogImage) && $ogImage
+                ? (\Illuminate\Support\Str::startsWith($ogImage, 'http') ? $ogImage : asset(ltrim($ogImage, '/')))
+                : $defaultOgImage;
+            $pageOgType = $ogType ?? 'website';
+            $pageRobots = $robots ?? null;
+        @endphp
+        <title>{{ $pageTitle }}</title>
+        <meta name="description" content="{{ $pageDescription }}" />
+        @if($pageRobots)
+        <meta name="robots" content="{{ $pageRobots }}" />
         @endif
+        <link rel="canonical" href="{{ $canonicalUrl }}" />
+
+        <meta property="og:site_name" content="Pullman Excavators Kenya" />
+        <meta property="og:type" content="{{ $pageOgType }}" />
+        <meta property="og:title" content="{{ $pageTitle }}" />
+        <meta property="og:description" content="{{ $pageDescription }}" />
+        <meta property="og:url" content="{{ $canonicalUrl }}" />
+        <meta property="og:image" content="{{ $pageOgImage }}" />
+        <meta property="og:locale" content="en_KE" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{{ $pageTitle }}" />
+        <meta name="twitter:description" content="{{ $pageDescription }}" />
+        <meta name="twitter:image" content="{{ $pageOgImage }}" />
+
+        @include('partials.seo.local-business')
+        @stack('jsonld')
         <!-- Google Tag Manager -->
         <script>
             (function (w, d, s, l, i) {
@@ -204,9 +226,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        @livewireStyles @php $canonicalUrl = request()->url(); @endphp
-
-        <link rel="canonical" href="{{ $canonicalUrl }}" />
+        @livewireStyles
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->

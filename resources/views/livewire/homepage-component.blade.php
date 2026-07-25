@@ -206,7 +206,7 @@
                                 <img
                                     class="card-img-top post-img"
                                     src="{{ asset($Water[0]->image) }}"
-                                    alt="Card image cap"
+                                    alt="{{ $Water[0]->title }}"
                                     width="330"
                                     height="247"
                                 />
@@ -259,18 +259,18 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="card">
-                            @if (count($latestPowershiftNews) > 0)
+                            @if (count($latestExcavationNews) > 0)
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{ asset($latestPowershiftNews[0]->image) }}"
-                                    alt="Card image cap"
+                                    src="{{ asset($latestExcavationNews[0]->image) }}"
+                                    alt="{{ $latestExcavationNews[0]->title }}"
                                     width="330"
                                     height="247"
                                 />
                                 <p class="power-title">
-                                    <a href="/latest/our-work/{{$latestPowershiftNews[0]->category->slug}}">
-                                        {{$latestPowershiftNews[0]->category->name}}
+                                    <a href="/latest/our-work/{{$latestExcavationNews[0]->category->slug}}">
+                                        {{$latestExcavationNews[0]->category->name}}
                                     </a>
                                 </p>
                             </div>
@@ -278,10 +278,10 @@
                                 <div class="row pl-2">
                                     <div class="col-10 col-sm-10">
                                         <a
-                                            href="{{route('frontend.blog.details',['category'=>$latestPowershiftNews[0]->category->slug,'slug'=>$latestPowershiftNews[0]->slug])}}"
+                                            href="{{route('frontend.blog.details',['category'=>$latestExcavationNews[0]->category->slug,'slug'=>$latestExcavationNews[0]->slug])}}"
                                         >
                                             <h5 class="card-title pt-2 pl-0">
-                                                {{$latestPowershiftNews[0]->titleExcerpt()}}
+                                                {{$latestExcavationNews[0]->titleExcerpt()}}
                                             </h5>
                                             <div class="card-body pt-0 pl-0">
                                                 <p class="card-text">
@@ -295,12 +295,12 @@
                                                 ></i>
                                                 <span class="card-date"
                                                     >
-                                                    {!! htmlspecialchars_decode($latestPowershiftNews[0]->created_at->format('d<\s\u\p>S</\s\u\p> F, Y')) !!}
+                                                    {!! htmlspecialchars_decode($latestExcavationNews[0]->created_at->format('d<\s\u\p>S</\s\u\p> F, Y')) !!}
                                                 </span
                                                 >
                                                 <div class="readmore-sec1">
                                                     <a
-                                                        href="{{route('frontend.blog.details',['category'=>$latestPowershiftNews[0]->category->slug,'slug'=>$latestPowershiftNews[0]->slug])}}"
+                                                        href="{{route('frontend.blog.details',['category'=>$latestExcavationNews[0]->category->slug,'slug'=>$latestExcavationNews[0]->slug])}}"
                                                         class="btn btn-primary pt-1"
                                                         >Read More
                                                     </a>
@@ -322,7 +322,7 @@
                                 <img
                                     class="card-img-top post-img"
                                     src="{{ asset($latestPressRelease[0]->image) }}"
-                                    alt="Card image cap"
+                                    alt="{{ $latestPressRelease[0]->title }}"
                                     width="330"
                                     height="247"
                                 />

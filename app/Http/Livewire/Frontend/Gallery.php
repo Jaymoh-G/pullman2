@@ -19,13 +19,23 @@ class Gallery extends Component
 
     public function mount(){
         $this->albumId = request()->route('albumId');
-        // get from album where id = $albumId
         $this->album = Album::where('id', $this->albumId)->first();
+
+        if (!$this->album) {
+            abort(404);
+        }
+
         $this->photos = AlbumPhoto::where('album_id', $this->albumId)->get();
     }
 
     public function render(){
         $galleries = Album::all();
-        return view('livewire.frontend.gallery',['galleries'=>$galleries])->layout('layouts.web');
+        $albumTitle = $this->album->title ?? 'Gallery';
+
+        return view('livewire.frontend.gallery', ['galleries' => $galleries])->layout('layouts.web', [
+            'activePage' => 'media',
+            'title' => $albumTitle . ' | Gallery | Pullman Excavators',
+            'metaDescription' => 'Photo gallery: ' . $albumTitle . ' from Pullman Excavators Kenya.',
+        ]);
     }
 }

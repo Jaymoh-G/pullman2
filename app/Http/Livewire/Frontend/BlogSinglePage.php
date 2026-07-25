@@ -25,6 +25,11 @@ class BlogSinglePage extends Component
     public function mount($slug){
         $this->slug = $slug;
         $this->blog = Blog::where('slug', $this->slug)->first();
+
+        if (!$this->blog) {
+            abort(404);
+        }
+
         $this->metaDescription = $this->blog->metaDescription;
         $this->categories = Category::all();
         $this->blogComments = BlogComment::where('blog_id', $this->blog->id)->where('approved', '=', 1)->get();
@@ -33,7 +38,12 @@ class BlogSinglePage extends Component
     }
 
     public function render(){
-        return view('livewire.frontend.blog-single-page')->layout('layouts.web', ['title'=>$this->blog->title,'metaDescription'=>$this->metaDescription]);
+        return view('livewire.frontend.blog-single-page')->layout('layouts.web', [
+            'title' => $this->blog->title,
+            'metaDescription' => $this->metaDescription ?: $this->blog->title,
+            'ogImage' => $this->blog->image,
+            'ogType' => 'article',
+        ]);
     }
 
     // create blog comment

@@ -1,4 +1,20 @@
 <div class="blog-section">
+    @include('partials.seo.article', [
+        'articleTitle' => $blog->title,
+        'articleDescription' => $metaDescription ?: $blog->title,
+        'articleImage' => $blog->image,
+        'articlePublished' => $blog->created_at,
+        'articleModified' => $blog->updated_at,
+        'articleUrl' => route('frontend.blog.details', ['category' => $blog->category->slug, 'slug' => $blog->slug]),
+    ])
+    @include('partials.seo.breadcrumb', [
+        'breadcrumbs' => [
+            ['name' => 'Home', 'url' => route('homepage.index')],
+            ['name' => 'Latest', 'url' => route('frontend.latest')],
+            ['name' => $category, 'url' => route('frontend.blog.categories', ['categorySlug' => $blog->category->slug])],
+            ['name' => $title],
+        ],
+    ])
     <style>
         .btn-success {
             color: #fff !important;
@@ -39,7 +55,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="home_content">
-                            <!-- <div class="home_title"><span>Power Shift</span> Latest </div> -->
+                            <!-- <div class="home_title"><span>Pullman</span> Latest </div> -->
                             <div class="breadcrumbs">
                                 <ul>
                                     <li><a href="{{route('homepage.index')}}">Home</a></li>
@@ -76,7 +92,7 @@
                         </div>
 
                             <div class="fakeimg">
-                                <img src="{{ asset($blog->image) }}" alt="{{$blog->title}}" srcset="" style="object-fit:cover; width:100%;">
+                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="object-fit:cover; width:100%;" loading="lazy">
                             </div>
                         <p class="cat-name"><i>Category : {{$blog->category->name}} | tags:
 

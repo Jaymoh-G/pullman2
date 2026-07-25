@@ -233,7 +233,7 @@
                     @forelse($testimonials as $testimonial)
                     <!-- About Content -->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                          <img src="{{ asset($testimonial->image) }}" alt="" srcset="" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                                          <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name ?? 'Client testimonial' }}" loading="lazy" style="box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     width: 140px;
     height: 90px;
 ">

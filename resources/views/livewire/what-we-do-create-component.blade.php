@@ -59,6 +59,37 @@
                                                 >{{ $message }}</span
                                             >
                                         @enderror
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">SEO title</label>
+                                            <div class="col-sm-10">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Optional browser/search title (max 70)"
+                                                    wire:model="seo_title"
+                                                />
+                                                <small class="text-muted">Used in search results. Leave blank to use the page title.</small>
+                                            </div>
+                                        </div>
+                                        @error('seo_title')
+                                            <span class="error text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Slug</label>
+                                            <div class="col-sm-10">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="url-slug"
+                                                    wire:model="slug"
+                                                    required
+                                                />
+                                                <small class="text-muted">URL: /what-we-do/{{ $slug ?: 'your-slug' }}</small>
+                                            </div>
+                                        </div>
+                                        @error('slug')
+                                            <span class="error text-danger">{{ $message }}</span>
+                                        @enderror
                                         <div class="form-group" wire:ignore>
                                             <label
                                                 class="col-sm-3 control-label"

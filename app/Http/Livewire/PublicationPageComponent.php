@@ -29,7 +29,11 @@ class PublicationPageComponent extends Component
 
     public function render()
     {
-        return view('livewire.publication-page-component')->layout('layouts.web', ['activePage' => 'publications', 'title' => "Our Work", 'metaDescription' => "Some of our past projects and works"]);
+        return view('livewire.publication-page-component')->layout('layouts.web', [
+            'activePage' => 'publications',
+            'title' => 'Our Work & Projects | Pullman Excavators Kenya',
+            'metaDescription' => 'Past excavation, earthworks, and construction projects completed by Pullman Excavators Kenya.',
+        ]);
     }
 
     function mailchimpSubscribe()

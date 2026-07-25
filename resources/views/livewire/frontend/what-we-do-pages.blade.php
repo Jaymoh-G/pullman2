@@ -1,4 +1,17 @@
 <div>
+    @include('partials.seo.service', [
+        'serviceName' => $this->whatWeDos->title,
+        'serviceDescription' => $this->metaDescription ?: $this->whatWeDos->title,
+        'serviceUrl' => route('frontend.whatWeDo.page', ['slug' => $this->whatWeDos->slug]),
+        'serviceImage' => $this->whatWeDos->image,
+    ])
+    @include('partials.seo.breadcrumb', [
+        'breadcrumbs' => [
+            ['name' => 'Home', 'url' => route('homepage.index')],
+            ['name' => 'What we do', 'url' => route('frontend.whatWeDo')],
+            ['name' => $this->whatWeDos->title],
+        ],
+    ])
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/services_responsive.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/pages.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/carousel.css') }}" />
@@ -146,7 +159,7 @@
                 </p>
             </div>
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-              <img src="{{ asset($this->whatWeDos->image) }}" style="width:475px" alt="{{$this->whatWeDos->image}}" srcset="">
+              <img src="{{ asset($this->whatWeDos->image) }}" style="width:475px" alt="{{ $this->whatWeDos->title }}" loading="lazy">
             </div>
           </div>
         </div>

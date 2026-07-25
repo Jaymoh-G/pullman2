@@ -17,12 +17,16 @@ class Careers extends Component
     public $name;
     public $email;
     public function mount(){
-        $this->sectionOneData = $this->getSectionData('Working at Power Shift Africa');
+        $this->sectionOneData = $this->getSectionData('Working at');
         $this->sectionTwoData = $this->getSectionData('Open Positions');
         $this->jobs = Job::where('deadline', '>=', Carbon::now()->subDay())->orderBy('deadline', 'asc')->get();         
     }
     public function render(){
-        return view('livewire.frontend.careers')->layout('layouts.web',['activePage'=>'joinUs']);
+        return view('livewire.frontend.careers')->layout('layouts.web', [
+            'activePage' => 'joinUs',
+            'title' => 'Careers | Join Pullman Excavators Kenya',
+            'metaDescription' => 'Explore career opportunities with Pullman Excavators Kenya in excavation and construction.',
+        ]);
     }
     function mailchimpSubscribe(){
         $this->validate([

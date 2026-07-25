@@ -41,7 +41,11 @@ class SearchComponent extends Component
     }
 
     public function render(){
-        return view('livewire.frontend.search-component')->layout('layouts.web');
+        return view('livewire.frontend.search-component')->layout('layouts.web', [
+            'title' => 'Search | Pullman Excavators Kenya',
+            'metaDescription' => 'Search Pullman Excavators Kenya for projects, news, and services.',
+            'robots' => 'noindex,follow',
+        ]);
     }
 
     public function search(){

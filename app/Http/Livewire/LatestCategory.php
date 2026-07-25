@@ -44,12 +44,21 @@ class LatestCategory extends Component
             ->orderBy('blogs.updated_at', 'desc')
             ->paginate(12);
         // dd($blogs);
-        //get title
-        if ($blogs[0]) {
+        if ($blogs->count() > 0) {
             $this->title = $blogs[0]->category->name;
+        } else {
+            $this->title = ucwords(str_replace('-', ' ', $category));
         }
 
-        return view('livewire.latest-category', ['blogs' => $blogs])->layout('layouts.web', ['activePage' => 'latest', 'title' => $this->title, 'metaDescription' => $this->title]);
+        $metaDescription = $this->title
+            ? $this->title . ' news and projects from Pullman Excavators Kenya.'
+            : 'Latest projects from Pullman Excavators Kenya.';
+
+        return view('livewire.latest-category', ['blogs' => $blogs])->layout('layouts.web', [
+            'activePage' => 'latest',
+            'title' => ($this->title ?: 'Latest') . ' | Pullman Excavators Kenya',
+            'metaDescription' => $metaDescription,
+        ]);
     }
 
     function resetInput()

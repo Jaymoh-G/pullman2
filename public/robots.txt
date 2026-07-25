@@ -1,3 +1,9 @@
 User-agent: *
+Disallow: /admin
+Disallow: /editor
+Disallow: /dashboard
+Disallow: /search
+Disallow: /generate-sitemap
+Disallow: /livewire
 
 Sitemap: https://pullmanexcavatorskenya.com/sitemap.xml

@@ -154,8 +154,7 @@
                 </ul>
               </li>
 
-              <!-- <li class="menu-item nav-item"><a class="nav-link {{ $this->checkActivePage('cop27') }}" href="{{route('frontend.cop27')}}" class="nav-link scrollto">COP28</a>
-              </li>  <li class="menu-item nav-item"><a class="nav-link {{ $this->checkActivePage('ACED') }}" href="#" class="nav-link scrollto">ACED</a>
+              <!-- <li class="menu-item nav-item"><a class="nav-link {{ $this->checkActivePage('ACED') }}" href="#" class="nav-link scrollto">ACED</a>
               </li>
                <li class="menu-item nav-item"><a class="nav-link {{ $this->checkActivePage('publications') }}" href="{{route('frontend.publications')}}" class="nav-link scrollto">Publications</a>
               </li>

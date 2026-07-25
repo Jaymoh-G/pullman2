@@ -23,6 +23,10 @@ class FrontendMediaComponent extends Component{
     }
 
     public function render(){
-        return view('livewire.frontend.media-component')->layout('layouts.web',['activePage'=>'media']);
+        return view('livewire.frontend.media-component')->layout('layouts.web', [
+            'activePage' => 'media',
+            'title' => 'Media Gallery | Pullman Excavators Kenya',
+            'metaDescription' => 'Photos, videos, and media from Pullman Excavators Kenya projects and worksites.',
+        ]);
     }
 }

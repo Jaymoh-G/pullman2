@@ -37,6 +37,7 @@ class HomepageComponent extends Component
     public $Water;
     public $News;
     public $testimonial;
+    public $latestExcavationNews;
 
     public function mount()
     {
@@ -49,7 +50,7 @@ class HomepageComponent extends Component
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
             ->where('categories.name', '=', 'Equipment and Machine Hire')
             ->take(3)->latest('blogs.updated_at')->get();
-        $this->latestPowershiftNews = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
+        $this->latestExcavationNews = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
             ->where('categories.name', '=', 'Excavation and Demolition')
             ->take(2)->latest('blogs.updated_at')->get();
@@ -65,13 +66,17 @@ class HomepageComponent extends Component
             ->take(2)->latest('blogs.updated_at')->get();
 
         $this->latestEvent = Event::orderBy('date_from', 'desc')->take(1)->get();
-        $this->title = "Power shift Africa";
+        $this->title = "Pullman Excavators Kenya";
         $this->publications = Publication::orderBy('updated_at', 'desc')->take(2)->get();
     }
 
     public function render()
     {
-        return view('livewire.homepage-component')->layout('layouts.web', ['activePage' => 'home',  'title' => "Excavator Hire | Equipment Hire | Lowloader services ,Grader, Dozer ...", 'metaDescription' => 'We do provide - Excavation (Earthworks) and Equipment/Machine Hire services in Kenya. Call 0726634673 We are Kenya best Excavating company/contractor.']);
+        return view('livewire.homepage-component')->layout('layouts.web', [
+            'activePage' => 'home',
+            'title' => 'Excavator Hire & Earthworks Nairobi | Pullman Excavators Kenya',
+            'metaDescription' => 'Pullman Excavators Kenya provides excavation, demolition, equipment hire, and building materials supply across Nairobi and Kenya.',
+        ]);
     }
 
     public function setTitle($title)

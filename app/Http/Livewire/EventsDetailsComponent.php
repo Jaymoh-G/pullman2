@@ -18,12 +18,24 @@ class EventsDetailsComponent extends Component
 
     public function mount(){
         $this->slug = request('slug');
-        $this->event = Event::where('slug', $this->slug)->first(); 
-        $this->otherEvents = Event::inRandomOrder()->take(3)->get();        
+        $this->event = Event::where('slug', $this->slug)->first();
+
+        if (!$this->event) {
+            abort(404);
+        }
+
+        $this->otherEvents = Event::inRandomOrder()->take(3)->get();
     }
 
-    public function render(){        
-        return view('livewire.events-details-component')->layout('layouts.web');
+    public function render(){
+        $eventTitle = $this->event->name ?: $this->event->title;
+
+        return view('livewire.events-details-component')->layout('layouts.web', [
+            'activePage' => 'latest',
+            'title' => $eventTitle . ' | Events | Pullman Excavators',
+            'metaDescription' => \Illuminate\Support\Str::limit(strip_tags($this->event->description ?? $eventTitle), 155),
+            'ogImage' => $this->event->image ?? null,
+        ]);
     }
 
     public function register(){

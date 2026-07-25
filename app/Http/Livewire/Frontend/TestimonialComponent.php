@@ -17,6 +17,10 @@ class TestimonialComponent extends Component
     }
     public function render()
     {
-        return view('livewire.frontend.testimonial-component')->layout('layouts.web', ['activePage' => 'testimonials']);
+        return view('livewire.frontend.testimonial-component')->layout('layouts.web', [
+            'activePage' => 'testimonials',
+            'title' => 'Client Testimonials | Pullman Excavators Kenya',
+            'metaDescription' => 'What clients say about Pullman Excavators Kenya excavation, hire, and construction services.',
+        ]);
     }
 }

@@ -1,191 +1,181 @@
-<div class="card-body">
-    @if(Session::has('message'))
-    <div class="alert alert-success" role="alert">
-        {{Session::get('message')}}
-    </div>
+<div class="card-body blog-create-card">
+    @if (Session::has('message'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('message') }}
+        </div>
     @endif
-    <div class="horizontal-form">
-        {{-- Use a div, not <form>: POST to this GET-only route returns 405 on live. --}}
-        <div class="form-horizontal" id="blog-create-form">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Title</label>
-                <small>Max: 60 characters</small>
-                <div class="col-sm-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Title"
-                        wire:model="title"
-                        wire:keyup="generateSlug"
-                        required
+
+    @if ($errors->any())
+        <div class="alert alert-danger blog-create-error-summary" role="alert">
+            <strong>Please fix the following:</strong>
+            <ul class="mb-0 pl-3">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="blog-create-form" id="blog-create-form">
+        <div class="blog-field">
+            <label for="blog-title">Title</label>
+            <small class="text-muted d-block mb-1">Max 255 characters (aim for ~60)</small>
+            <input
+                id="blog-title"
+                type="text"
+                class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
+                placeholder="Title"
+                wire:model.debounce.500ms="title"
+            />
+            @error('title')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="blog-field">
+            <label for="blog-slug">Slug</label>
+            <input
+                id="blog-slug"
+                type="text"
+                class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}"
+                placeholder="Slug"
+                wire:model.debounce.500ms="slug"
+            />
+            @error('slug')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="blog-field">
+            <label for="blog-category">Category</label>
+            <select
+                id="blog-category"
+                wire:model="category_id"
+                wire:change="changeCategory"
+                class="form-control {{ $errors->has('category_id') ? 'is-invalid' : '' }}"
+            >
+                <option value="">Choose category</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
+
+        @if ($showSubcategory)
+            <div class="blog-field">
+                <label for="blog-subcategory">Subcategory</label>
+                <select
+                    id="blog-subcategory"
+                    wire:model="subcategory_id"
+                    class="form-control"
+                >
+                    <option value="">Choose subcategory</option>
+                    @foreach ($subcategories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+
+        <div class="blog-field">
+            <label for="blog-tags">Tags</label>
+            <small class="text-muted d-block mb-1">Hold Ctrl/Cmd to select multiple</small>
+            <select
+                id="blog-tags"
+                wire:model="tags"
+                class="form-control"
+                multiple
+                size="5"
+            >
+                @foreach ($blogTags as $tag)
+                    <option value="{{ $tag->name }}">{{ $tag->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="blog-field">
+            <label for="blog-photo">Blog image</label>
+            @if ($this->image_preview_url)
+                <div class="blog-image-preview mb-2">
+                    <img
+                        src="{{ $this->image_preview_url }}"
+                        alt="{{ $title ?: 'Blog image preview' }}"
                     />
                 </div>
-                @error('title')
-                <p class="help is-danger">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Slug</label>
-                <div class="col-sm-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Slug"
-                        wire:model="slug"
-                        required
-                    />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Category</label>
-                <div class="col-sm-10">
-                    <select
-                        wire:model="category_id"
-                        wire:change="changeCategory"
-                        class="form-control"
-                        id="category"
-                        required
-                    >
-                        <option value="" selected>Choose category</option>
-                        @foreach($categories as $category)
-                        <option
-                            value="{{$category->id}}"
-                            category-slug="{{$category->slug}}"
-                            selected
-                        >
-                            {{$category->name}}
-                        </option>
-                        @endforeach
-                    </select>
-                    @error('category')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-            </div>
-            @if($showSubcategory)
-                <div class="form-group subcategory-wrapper">
-                    <label class="col-sm-2 control-label">Subcategory</label>
-                    <div class="col-sm-10">
-                        <select
-                            wire:model="subcategory_id"
-                            class="form-control"
-                            id="subcategory"
-                            required
-                        >
-                            <option value="" selected>Choose Subcategory</option>
-                            @foreach($subcategories as $category)
-                            <option
-                                value="{{$category->id}}"
-                                subcategory-slug="{{$category->slug}}"
-                                selected
-                            >
-                                {{$category->name}}
-                            </option>
-                            @endforeach
-                        </select>
-                        @error('category')
-                        <p class="help is-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
+            @elseif ($photo)
+                <p class="small text-muted mb-2">Selected: {{ $photo->getClientOriginalName() }}</p>
             @endif
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Tags</label>
-                <small>You can select multiple</small>
-                <div class="col-sm-10">
-                    <select
-                        wire:model="tags"
-                        class="form-control"
-                        multiple="multiple"
-                        style="height: 75pt"
-                    >
-                        <option value="">--select--</option>
-                        @foreach($blogTags as $tag)
-                        <option value="{{$tag->name}}">
-                            {{$tag->name}}
-                        </option>
-                        @endforeach
-                    </select>
-                </div>
+            <input
+                id="blog-photo"
+                type="file"
+                class="form-control-file {{ $errors->has('photo') ? 'is-invalid' : '' }}"
+                accept="image/*"
+                wire:model="photo"
+            />
+            <div wire:loading wire:target="photo" class="text-muted small mt-1">
+                Uploading image…
             </div>
-            <div class="field">
-                <label class="col-sm-2 control-label">Blog image</label>
-                @if($tempImage)
-                <a href="{{ asset(implode('/', array_map('rawurlencode', explode('/', ltrim($tempImage, '/'))))) }}" download
-                    ><img
-                        src="{{ asset(implode('/', array_map('rawurlencode', explode('/', ltrim($tempImage, '/'))))) }}"
-                        alt="{{ $title }}"
-                        width="100"
-                        height="100"
-                        style="object-fit: cover; margin-bottom: 8px;"
-                /></a>
-                @endif
-                <div class="control has-icons-left has-icons-right">
-                    <input
-                        type="file"
-                        class="form-control"
-                        id="blogImage"
-                        accept="image/*"
-                        wire:change="$emit('handleblogImageUpload')"
-                    />
+            @error('photo')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
 
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
-                    @error('image')
-                    <p class="help is-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Meta description </label>
-                <small>Max: 158 characters</small>
-                <div class="col-sm-9">
-                    <textarea
-                        wire:model="metaDescription"
-                        cols="63"
-                        rows="10"
-                        placeholder="Enter meta description"
-                    ></textarea>
-                </div>
-                @error('metaDescription')
-                <p class="help is-danger">{{ $message }}</p>
-                @enderror
-            </div>
+        <div class="blog-field">
+            <label for="blog-meta">Meta description</label>
+            <small class="text-muted d-block mb-1">Max 158 characters</small>
+            <textarea
+                id="blog-meta"
+                wire:model.debounce.500ms="metaDescription"
+                class="form-control {{ $errors->has('metaDescription') ? 'is-invalid' : '' }}"
+                rows="4"
+                placeholder="Enter meta description"
+            ></textarea>
+            @error('metaDescription')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
 
-            <div class="form-group" wire:ignore>
-                <label class="col-sm-2 control-label">Body </label>
-                <div class="col-sm-10">
-                    <textarea
-                        id="body"
-                        cols="63"
-                        rows="10"
-                        placeholder="Blog content."
-                    >{!! $body !!}</textarea>
-                </div>
+        <div class="blog-field">
+            <label>Body</label>
+            <div wire:ignore class="blog-quill-wrap">
+                <div id="blog-quill-editor">{!! $body !!}</div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Link</label>
-                <div class="col-sm-10">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter link"
-                        wire:model="link"
-                    />
-                </div>
-                @error('link')
-                <span class="error text-danger">{{ $message }}</span>
-                @enderror
-            </div>
+            <input type="hidden" id="blog-body-sync" value="" />
+        </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-default" id="save-blog-btn" wire:loading.attr="disabled">
-                        {{ $blogId ? "Update" : "Save" }}
-                    </button>
-                </div>
-            </div>
+        <div class="blog-field">
+            <label for="blog-link">Link</label>
+            <input
+                id="blog-link"
+                type="text"
+                class="form-control {{ $errors->has('link') ? 'is-invalid' : '' }}"
+                placeholder="Optional URL"
+                wire:model.debounce.500ms="link"
+            />
+            @error('link')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="blog-save-bar">
+            <button
+                type="button"
+                class="btn btn-pullman"
+                id="save-blog-btn"
+                wire:loading.attr="disabled"
+                wire:target="saveBlog"
+            >
+                <span wire:loading.remove wire:target="saveBlog">
+                    {{ $blogId ? 'Update' : 'Save' }}
+                </span>
+                <span wire:loading wire:target="saveBlog">Saving…</span>
+            </button>
+            <p class="blog-save-hint text-muted small mb-0" wire:loading wire:target="saveBlog">
+                Please wait — saving your post.
+            </p>
         </div>
     </div>
 </div>

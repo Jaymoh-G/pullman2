@@ -5,11 +5,8 @@
     </div>
     @endif
     <div class="horizontal-form">
-        <form
-            class="form-horizontal"
-            wire:submit.prevent="saveBlog"
-            onsubmit="return false;"
-        >
+        {{-- Use a div, not <form>: POST to this GET-only route returns 405 on live. --}}
+        <div class="form-horizontal" id="blog-create-form">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Title</label>
                 <small>Max: 60 characters</small>
@@ -66,7 +63,7 @@
                 </div>
             </div>
             @if($showSubcategory)
-                <div  iv class="form-group subcategory-wrapper">
+                <div class="form-group subcategory-wrapper">
                     <label class="col-sm-2 control-label">Subcategory</label>
                     <div class="col-sm-10">
                         <select
@@ -189,6 +186,6 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>

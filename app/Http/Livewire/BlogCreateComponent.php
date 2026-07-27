@@ -119,7 +119,7 @@ class BlogCreateComponent extends Component
 
         $this->resetInput();
         $this->emit('blogSaved');
-        redirect()->to('/admin/latest/news');
+        return $this->redirect(route('admin.blogs'));
     }
 
     public function resetInput()

@@ -172,6 +172,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authEditor'])->group(function ()
     //news
     Route::get('/admin/latest/news', BlogComponent::class)->name('admin.blogs');
     Route::get('/admin/latest/create', BlogCreateComponent::class)->name('admin.blogs.create');
+    // Allow POST so accidental full-page form submits do not 405 (same pattern as adduser).
+    Route::post('/admin/latest/create', BlogCreateComponent::class);
     Route::get('/admin/latest/comments', BlogCommentComponent::class)->name('admin.blogs.comments');
 
     //publications

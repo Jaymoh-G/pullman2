@@ -84,17 +84,33 @@ class BlogCreateComponent extends Component
     public function updatedPhoto()
     {
         $this->validate([
-            'photo' => 'nullable|image|max:4096',
+            'photo' => 'nullable|image|max:6656',
         ], [
             'photo.image' => 'The blog image must be a valid image file.',
-            'photo.max' => 'The blog image may not be greater than 4MB.',
+            'photo.max' => 'The blog image may not be greater than 6.5MB.',
         ]);
     }
 
-    public function saveBlog($bodyContent = null)
+    public function saveBlog($bodyContent = null, $title = null, $slug = null, $metaDescription = null, $link = null)
     {
         if ($bodyContent !== null) {
             $this->body = $bodyContent;
+        }
+        if ($title !== null) {
+            $this->title = $title;
+        }
+        if ($slug !== null) {
+            $this->slug = $slug;
+        }
+        if ($metaDescription !== null) {
+            $this->metaDescription = $metaDescription;
+        }
+        if ($link !== null) {
+            $this->link = $link;
+        }
+
+        if (trim((string) $this->slug) === '' && trim((string) $this->title) !== '') {
+            $this->slug = Str::slug((string) $this->title);
         }
 
         $this->validate([
@@ -102,7 +118,7 @@ class BlogCreateComponent extends Component
             'slug' => 'required|min:3|max:255',
             'metaDescription' => 'required|min:3|max:158',
             'category_id' => 'required',
-            'photo' => 'nullable|image|max:4096',
+            'photo' => 'nullable|image|max:6656',
         ], [
             'title.required' => 'Title is required',
             'title.min' => 'Title must be at least 3 characters',
@@ -114,7 +130,7 @@ class BlogCreateComponent extends Component
             'metaDescription.max' => 'Meta description maximum length is 158 characters',
             'category_id.required' => 'Category is required',
             'photo.image' => 'The blog image must be a valid image file.',
-            'photo.max' => 'The blog image may not be greater than 4MB.',
+            'photo.max' => 'The blog image may not be greater than 6.5MB.',
         ]);
 
         if ($this->photo) {

@@ -136,7 +136,9 @@
     </div>
 
     <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script>
         (function () {
             let quill = null;
@@ -173,6 +175,119 @@
                 });
             };
 
+            const MAX_PHOTO_BYTES = 6.5 * 1024 * 1024;
+            const WARN_PHOTO_BYTES = 1 * 1024 * 1024;
+            let blogPhotoObjectUrl = null;
+
+            const showBlogPhotoPreview = (file) => {
+                const wrap = document.getElementById('blog-image-preview-wrap');
+                const img = document.getElementById('blog-image-preview-img');
+                const nameEl = document.getElementById('blog-photo-selected-name');
+                if (!wrap || !img) {
+                    return;
+                }
+
+                if (blogPhotoObjectUrl) {
+                    URL.revokeObjectURL(blogPhotoObjectUrl);
+                    blogPhotoObjectUrl = null;
+                }
+
+                blogPhotoObjectUrl = URL.createObjectURL(file);
+                img.src = blogPhotoObjectUrl;
+                img.alt = file.name || 'Blog image preview';
+                wrap.style.display = '';
+                if (nameEl) {
+                    nameEl.style.display = 'none';
+                }
+            };
+
+            const clearBlogPhotoPreview = () => {
+                const wrap = document.getElementById('blog-image-preview-wrap');
+                const img = document.getElementById('blog-image-preview-img');
+                const nameEl = document.getElementById('blog-photo-selected-name');
+                if (blogPhotoObjectUrl) {
+                    URL.revokeObjectURL(blogPhotoObjectUrl);
+                    blogPhotoObjectUrl = null;
+                }
+                if (img) {
+                    img.removeAttribute('src');
+                }
+                if (wrap) {
+                    wrap.style.display = 'none';
+                }
+                if (nameEl) {
+                    nameEl.style.display = 'none';
+                }
+            };
+
+            const uploadBlogPhoto = (file) => {
+                showBlogPhotoPreview(file);
+                @this.upload('photo', file);
+            };
+
+            const bindBlogPhotoInput = () => {
+                const photoInput = document.getElementById('blog-photo');
+                if (!photoInput || photoInput.dataset.bound === '1') {
+                    return;
+                }
+                photoInput.dataset.bound = '1';
+                photoInput.addEventListener('change', function () {
+                    const input = this;
+                    const file = input.files && input.files[0];
+                    if (!file) {
+                        return;
+                    }
+
+                    if (file.size > MAX_PHOTO_BYTES) {
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Image too large',
+                                text: 'The blog image may not be greater than 6.5MB.',
+                            });
+                        } else {
+                            alert('The blog image may not be greater than 6.5MB.');
+                        }
+                        input.value = '';
+                        clearBlogPhotoPreview();
+                        return;
+                    }
+
+                    if (file.size > WARN_PHOTO_BYTES) {
+                        if (typeof Swal === 'undefined') {
+                            const proceed = confirm(
+                                'This image is larger than 1MB and may affect page load speed. Do you want to proceed?'
+                            );
+                            if (!proceed) {
+                                input.value = '';
+                                return;
+                            }
+                            uploadBlogPhoto(file);
+                            return;
+                        }
+
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Large image',
+                            text: 'This image is larger than 1MB and may affect page load speed. Do you want to proceed?',
+                            showCancelButton: true,
+                            confirmButtonText: 'Proceed',
+                            cancelButtonText: 'Cancel',
+                            confirmButtonColor: '#ee1c25',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                uploadBlogPhoto(file);
+                            } else {
+                                input.value = '';
+                            }
+                        });
+                        return;
+                    }
+
+                    uploadBlogPhoto(file);
+                });
+            };
+
             const bindSaveBlogButton = () => {
                 const saveBtn = document.getElementById('save-blog-btn');
                 if (!saveBtn || saveBtn.dataset.bound === '1') {
@@ -182,24 +297,40 @@
                 saveBtn.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    @this.call('saveBlog', getBlogBodyContent());
+
+                    const title = (document.getElementById('blog-title') || {}).value || '';
+                    const slug = (document.getElementById('blog-slug') || {}).value || '';
+                    const metaDescription = (document.getElementById('blog-meta') || {}).value || '';
+                    const link = (document.getElementById('blog-link') || {}).value || '';
+
+                    @this.call(
+                        'saveBlog',
+                        getBlogBodyContent(),
+                        title,
+                        slug,
+                        metaDescription,
+                        link
+                    );
                 });
             };
 
             document.addEventListener('livewire:load', () => {
                 initQuill();
                 bindSaveBlogButton();
+                bindBlogPhotoInput();
             });
 
             document.addEventListener('DOMContentLoaded', () => {
                 initQuill();
                 bindSaveBlogButton();
+                bindBlogPhotoInput();
             });
 
             if (window.livewire) {
                 window.livewire.hook('message.processed', () => {
                     initQuill();
                     bindSaveBlogButton();
+                    bindBlogPhotoInput();
                 });
             }
         })();

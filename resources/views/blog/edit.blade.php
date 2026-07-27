@@ -98,22 +98,32 @@
 
         <div class="blog-field">
             <label for="blog-photo">Blog image</label>
-            @if ($this->image_preview_url)
-                <div class="blog-image-preview mb-2">
-                    <img
-                        src="{{ $this->image_preview_url }}"
-                        alt="{{ $title ?: 'Blog image preview' }}"
-                    />
-                </div>
-            @elseif ($photo)
-                <p class="small text-muted mb-2">Selected: {{ $photo->getClientOriginalName() }}</p>
-            @endif
+            <div
+                id="blog-image-preview-wrap"
+                class="blog-image-preview mb-2"
+                wire:ignore
+                @if (! $this->image_preview_url) style="display: none;" @endif
+            >
+                <img
+                    id="blog-image-preview-img"
+                    src="{{ $this->image_preview_url ?: '' }}"
+                    alt="{{ $title ?: 'Blog image preview' }}"
+                />
+            </div>
+            <p
+                id="blog-photo-selected-name"
+                class="small text-muted mb-2"
+                @if (! $photo || $this->image_preview_url) style="display: none;" @endif
+            >
+                @if ($photo)
+                    Selected: {{ $photo->getClientOriginalName() }}
+                @endif
+            </p>
             <input
                 id="blog-photo"
                 type="file"
                 class="form-control-file {{ $errors->has('photo') ? 'is-invalid' : '' }}"
                 accept="image/*"
-                wire:model="photo"
             />
             <div wire:loading wire:target="photo" class="text-muted small mt-1">
                 Uploading image…

@@ -23,13 +23,19 @@ class BlogComponent extends Component{
         $this->blogId = $blogId;
     }
 
-    public function deleteBlog()    {
+    public function deleteBlog()
+    {
         if (!empty($this->blogId)) {
-            Blog::destroy($this->blogId);
+            $blog = Blog::find($this->blogId);
+            if ($blog) {
+                $blog->blogComments()->delete();
+                $blog->delete();
+            }
         }
+
         $this->blogId = null;
-        session()->flash('message', 'Blog has been deleted successfully');
         $this->showDeleteMessage = false;
+        session()->flash('message', 'Blog has been deleted successfully');
     }
 
     public function closeModal(){

@@ -86,10 +86,15 @@
 
         const emitData = (inputField) => {
             let file = inputField.files[0];
+            if (!file) {
+                return;
+            }
             let reader = new FileReader();
             reader.onloadend = () => {
-                window.livewire.emit('set_file_data', getFileNameData(inputField, file));
-                window.livewire.emit('file_upload', reader.result)
+                window.livewire.emit('file_upload', {
+                    ...getFileNameData(inputField, file),
+                    data: reader.result,
+                });
             }
             reader.readAsDataURL(file);
         }

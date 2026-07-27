@@ -142,20 +142,38 @@ class BlogCreateComponent extends Component
 
     public function fileUpload($fileData)
     {
-        $pdfName = $this->fileNameWithoutExtension . '_' . time() . '.' . $this->fileExtension;
+        // Prefer metadata bundled with the upload to avoid a race with set_file_data.
+        if (is_array($fileData)) {
+            if (!empty($fileData['file_name'])) {
+                $this->setFileData($fileData);
+            }
+            $fileData = $fileData['data'] ?? null;
+        }
+
+        if (empty($fileData) || !is_string($fileData)) {
+            return;
+        }
+
+        $baseName = Str::slug((string) $this->fileNameWithoutExtension);
+        if ($baseName === '') {
+            $baseName = 'blog-image';
+        }
+        $extension = strtolower((string) $this->fileExtension) ?: 'jpg';
+        $pdfName = $baseName . '_' . time() . '.' . $extension;
         $image = str_replace('data:image/jpg;base64,', '', $fileData);
         $image = str_replace('data:image/png;base64,', '', $image);
         $image = str_replace('data:image/jpeg;base64,', '', $image);
         $image = str_replace(' ', '+', $image);
         Storage::disk('public')->put('/blogs/' . $pdfName, base64_decode($image));
         $this->image = 'storage/blogs/' . $pdfName;
+        $this->tempImage = $this->image;
     }
 
     public function setFileData($fileData)
     {
-        $this->fileName = $fileData['file_name'];
-        $this->fileExtension = $fileData['file_extension'];
-        $this->fileNameWithoutExtension = $fileData['file_name_without_extension'];
+        $this->fileName = $fileData['file_name'] ?? null;
+        $this->fileExtension = $fileData['file_extension'] ?? null;
+        $this->fileNameWithoutExtension = $fileData['file_name_without_extension'] ?? null;
     }
 
     public function changeCategory(){

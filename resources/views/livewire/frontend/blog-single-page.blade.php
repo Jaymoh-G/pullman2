@@ -92,7 +92,7 @@
                         </div>
 
                             <div class="fakeimg">
-                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="object-fit:cover; width:100%;" loading="lazy">
+                                <img src="{{ $blog->image_url }}" alt="{{ $blog->title }}" style="object-fit:cover; width:100%;" loading="lazy">
                             </div>
                         <p class="cat-name"><i>Category : {{$blog->category->name}} | tags:
 

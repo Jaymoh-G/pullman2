@@ -113,13 +113,14 @@
             </div>
             <div class="field">
                 <label class="col-sm-2 control-label">Blog image</label>
-                @if($blogId)
-                <a href="{{ '/'.$tempImage }}" download
+                @if($tempImage)
+                <a href="{{ asset(implode('/', array_map('rawurlencode', explode('/', ltrim($tempImage, '/'))))) }}" download
                     ><img
-                        src="{{ '/'.$tempImage }}"
+                        src="{{ asset(implode('/', array_map('rawurlencode', explode('/', ltrim($tempImage, '/'))))) }}"
                         alt="{{ $title }}"
                         width="100"
                         height="100"
+                        style="object-fit: cover; margin-bottom: 8px;"
                 /></a>
                 @endif
                 <div class="control has-icons-left has-icons-right">
@@ -127,6 +128,7 @@
                         type="file"
                         class="form-control"
                         id="blogImage"
+                        accept="image/*"
                         wire:change="$emit('handleblogImageUpload')"
                     />
 

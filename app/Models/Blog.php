@@ -39,6 +39,23 @@ class Blog extends Model
     {
         return Str::limit($this->title, Blog::TITLE_EXCERPT_LENGTH);
     }
+
+    /**
+     * Public URL for the blog image (space-safe).
+     */
+    public function getImageUrlAttribute(): ?string
+    {
+        if (empty($this->image)) {
+            return null;
+        }
+
+        $path = ltrim($this->image, '/');
+        $segments = explode('/', $path);
+        $encoded = implode('/', array_map('rawurlencode', $segments));
+
+        return asset($encoded);
+    }
+
     /**
      * Get the comments for the blog post.
      */

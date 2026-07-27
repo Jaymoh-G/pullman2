@@ -24,7 +24,7 @@
         $articleSchema['image'] = [
             \Illuminate\Support\Str::startsWith($articleImage, 'http')
                 ? $articleImage
-                : asset(ltrim($articleImage, '/')),
+                : asset(implode('/', array_map('rawurlencode', explode('/', ltrim($articleImage, '/'))))),
         ];
     }
     $articleSchema = array_filter($articleSchema, function ($value) {

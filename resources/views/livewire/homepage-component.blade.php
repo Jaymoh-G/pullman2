@@ -273,7 +273,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{ asset($Water[0]->image) }}"
+                                    src="{{ $Water[0]->image_url }}"
                                     alt="{{ $Water[0]->title }}"
                                     width="330"
                                     height="247"
@@ -331,7 +331,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{ asset($latestExcavationNews[0]->image) }}"
+                                    src="{{ $latestExcavationNews[0]->image_url }}"
                                     alt="{{ $latestExcavationNews[0]->title }}"
                                     width="330"
                                     height="247"
@@ -389,7 +389,7 @@
                             <div class="img-preview">
                                 <img
                                     class="card-img-top post-img"
-                                    src="{{ asset($latestPressRelease[0]->image) }}"
+                                    src="{{ $latestPressRelease[0]->image_url }}"
                                     alt="{{ $latestPressRelease[0]->title }}"
                                     width="330"
                                     height="247"

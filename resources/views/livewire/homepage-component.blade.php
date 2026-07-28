@@ -504,11 +504,6 @@
                             @foreach(config('services.tiktok.featured_videos', []) as $tiktokVideoUrl)
                                 @include('partials.tiktok-embed', ['videoUrl' => $tiktokVideoUrl])
                             @endforeach
-                            @if(!empty(config('services.tiktok.featured_videos')))
-                                @once
-                                    <script async src="https://www.tiktok.com/embed.js"></script>
-                                @endonce
-                            @endif
                             <p class="mt-3 mb-0">
                                 <a
                                     href="{{ config('services.tiktok.profile_url') }}"

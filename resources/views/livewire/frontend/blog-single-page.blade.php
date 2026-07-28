@@ -95,10 +95,8 @@
             margin-bottom: 0.75rem;
         }
 
-        .blog-section .sidebar-tiktok .tiktok-embed {
-            margin: 0 auto 1rem !important;
-            max-width: 100% !important;
-            min-width: 0 !important;
+        .blog-section .sidebar-tiktok .tiktok-player-wrap {
+            margin: 0 auto 1rem;
         }
 
         .blog-section .sidebar-tiktok .tiktok-follow {
@@ -374,9 +372,6 @@
                                 @foreach(config('services.tiktok.featured_videos', []) as $tiktokVideoUrl)
                                     @include('partials.tiktok-embed', ['videoUrl' => $tiktokVideoUrl])
                                 @endforeach
-                                @once
-                                    <script async src="https://www.tiktok.com/embed.js"></script>
-                                @endonce
                                 <p class="mb-0">
                                     <a
                                         class="tiktok-follow"

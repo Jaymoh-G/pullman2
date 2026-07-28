@@ -474,7 +474,7 @@
                                     <img
                                         class="pdficon-img"
                                         src="{{ asset($publication->image) }}"
-                                        alt=""
+                                        alt="{{ $publication->title }}"
                                         srcset=""
                                         width="150px"
                                         height="180px"
@@ -482,14 +482,14 @@
                                 </div>
                                 <div class="pub_text">
                                     <a
-                                        href="{{route('frontend.blog.details',['category'=>$News[0]->category->slug,'slug'=>$News[0]->slug])}}"
+                                        href="{{ route('frontend.blog.details', ['category' => $publication->category->slug, 'slug' => $publication->slug]) }}"
                                     >
                                         <h3 class="media-subtitle">
-                                            {{$publication->title}}
+                                            {{ $publication->title }}
                                         </h3></a
                                     >
                                     <a
-                                        href="{{route('frontend.blog.details',['category'=>$News[0]->category->slug,'slug'=>$News[0]->slug])}}"
+                                        href="{{ route('frontend.blog.details', ['category' => $publication->category->slug, 'slug' => $publication->slug]) }}"
                                         class="btn btn-primary pt-1 publication-download-button"
                                     >
                                         Read More

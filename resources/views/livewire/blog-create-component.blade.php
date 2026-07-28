@@ -47,6 +47,15 @@
         }
         .blog-quill-wrap .ql-editor {
             min-height: 220px;
+            background: #fff;
+            color: #222;
+        }
+        /* Admin theme sets [contenteditable]:focus { background: #a4b3fe } which makes Quill illegible */
+        .blog-quill-wrap [contenteditable]:hover,
+        .blog-quill-wrap [contenteditable]:focus {
+            background: #fff;
+            color: #222;
+            outline: none;
         }
         .btn-pullman {
             background: #ee1c25;

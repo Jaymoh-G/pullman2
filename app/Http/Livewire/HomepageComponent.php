@@ -60,10 +60,10 @@ class HomepageComponent extends Component
             ->where('categories.name', '=', 'Civil Works')
             ->take(2)->latest('blogs.updated_at')->get();
 
-        $this->News = Blog::join('categories', 'blogs.category_id', '=', 'categories.id')
-            ->select('blogs.*', 'categories.name as category_name', 'categories.slug as category_slug')
-            ->where('categories.name', '=', 'News')
-            ->take(2)->latest('blogs.updated_at')->get();
+        $this->News = Blog::with('category')
+            ->orderBy('updated_at', 'desc')
+            ->take(4)
+            ->get();
 
         $this->latestEvent = Event::orderBy('date_from', 'desc')->take(1)->get();
         $this->title = "Pullman Excavators Kenya";

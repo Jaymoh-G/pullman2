@@ -21,20 +21,110 @@
             background-color: #28a745 !important;
             border-color: #28a745 !important;
         }
+
+        .blog-section .article-share {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 6px;
+            margin-left: 0 !important;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        .blog-section .article-share > span {
+            font-size: 13px;
+            margin-right: 2px;
+        }
+
+        .blog-section .article-share .post-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .blog-section .article-share .post-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .blog-section .article-share .post-social .fa,
+        .blog-section .article-share .post-social .fab,
+        .blog-section .article-share > a .fab {
+            font-size: 13px !important;
+            padding-left: 6px !important;
+            font-weight: 500;
+        }
+
+        .blog-section .article-share > a {
+            font-size: 12px;
+            margin-left: 4px !important;
+            color: #1a1919;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .blog-section .btn-part {
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-section .btn-part .post-social-wrapper {
+            margin-left: 0 !important;
+            margin-top: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .blog-section .btn-part .post-social .fa,
+        .blog-section .btn-part .post-social .fab {
+            font-size: 13px !important;
+            padding-left: 6px !important;
+        }
+
+        .blog-section .sidebar-tiktok {
+            margin-top: 1.5rem;
+        }
+
+        .blog-section .sidebar-tiktok .widget_title {
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-section .sidebar-tiktok .tiktok-embed {
+            margin: 0 auto 1rem !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .blog-section .sidebar-tiktok .tiktok-follow {
+            display: inline-block;
+            font-size: 13px;
+            color: #1a1919;
+            text-decoration: none;
+        }
+
+        .blog-section .sidebar-tiktok .tiktok-follow:hover {
+            color: #ee1c25;
+        }
+
         @media only screen and (max-width: 480px) {
             .fakeimg img{
                 width: 98% !important;
                 height: auto !important;
                 object-fit: cover;
-
             }
             .blog-section .btn-part .post-social-wrapper {
-    margin-left: 0em;
-    margin-top: 1em;
-}
-
-        }
-
+                margin-left: 0em;
+                margin-top: 1em;
+            }
+            .blog-section .article-share > a .follow-label {
+                display: none;
+            }
         }
     </style>
     <div class="home">
@@ -109,6 +199,28 @@
 
                         <div class="about_text"> {!!$blog->body!!}</div>
 
+                        <div class="post-social-wrapper article-share mt-4 mb-3">
+                            <span><i class="fa fa-share-alt"></i>Share:</span>
+                            <div class="post-social">
+                                @include('partials.social-share', [
+                                    'url' => route('frontend.blog.details', ['category' => $blog->category->slug, 'slug' => $blog->slug]),
+                                    'title' => $blog->title,
+                                    'layout' => 'post-social',
+                                ])
+                            </div>
+                            <a
+                                class="ml-3"
+                                href="{{ config('services.tiktok.profile_url') }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="{{ config('services.tiktok.handle') }} on TikTok"
+                            >
+                                <i class="fab fa-tiktok" aria-hidden="true"></i>
+                                <span class="follow-label">Follow {{ config('services.tiktok.handle') }}</span>
+                            </a>
+                            <div class="clear"></div>
+                        </div>
+
                     </div>
                     <div class="comment pt-5">
                         <h3>Leave a Comment</h3>
@@ -155,30 +267,11 @@
                                 <div class="post-social-wrapper">
                                     <span><i class="fa fa-share-alt"></i>Share:</span>
                                     <div class="post-social">
-                                        <a
-                                            title="Share this"
-                                            href="https://www.facebook.com/sharer.php?u={{Request::url()}}"
-                                            target="_blank"
-                                            class="facebook-share"
-                                            >
-                                                <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a
-                                            title="Tweet this"
-                                            href="https://twitter.com/share?url={{Request::url()}}&text={{$blog->title}}"
-                                            target="_blank"
-                                            class="twitter-share"
-                                            >
-                                                <i class="fab fa-twitter"></i>
-                                        </a>
-                                        <a
-                                            title="Share with whatsapp"
-                                            href="https://api.whatsapp.com/send?text={{$blog->title}} {{Request::url()}}"
-                                            target="_blank"
-                                            class="whatsapp-share"
-                                            >
-                                                <i class="fab fa-whatsapp"></i>
-                                        </a>
+                                        @include('partials.social-share', [
+                                            'url' => route('frontend.blog.details', ['category' => $blog->category->slug, 'slug' => $blog->slug]),
+                                            'title' => $blog->title,
+                                            'layout' => 'post-social',
+                                        ])
                                     </div>
                                     <div class="clear"></div>
                                 </div>
@@ -270,7 +363,34 @@
                             </div>
                         </div>
                         <hr>
-                        <!-- Twitter section -->
+                        <!-- TikTok feed -->
+                        @if(!empty(config('services.tiktok.featured_videos')))
+                        <div class="sidebar-tiktok">
+                            <aside class="widget">
+                                <h5 class="widget_title">
+                                    <i class="fab fa-tiktok" aria-hidden="true"></i>
+                                    TikTok
+                                </h5>
+                                @foreach(config('services.tiktok.featured_videos', []) as $tiktokVideoUrl)
+                                    @include('partials.tiktok-embed', ['videoUrl' => $tiktokVideoUrl])
+                                @endforeach
+                                @once
+                                    <script async src="https://www.tiktok.com/embed.js"></script>
+                                @endonce
+                                <p class="mb-0">
+                                    <a
+                                        class="tiktok-follow"
+                                        href="{{ config('services.tiktok.profile_url') }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i class="fab fa-tiktok" aria-hidden="true"></i>
+                                        Follow {{ config('services.tiktok.handle') }}
+                                    </a>
+                                </p>
+                            </aside>
+                        </div>
+                        @endif
                         </div>
                     </div>
                 </div>

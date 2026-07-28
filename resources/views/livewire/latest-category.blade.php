@@ -85,45 +85,11 @@
                                         <li class="share right">
                                             <i class="fa fa-share-alt"></i>
                                             <ul class="share-submenu">
-                                                <li>
-                                                    <a
-                                                        href="https://api.whatsapp.com/send?text={{$blog->title}} {{route('frontend.blog.details',['category'=>$blog->category->slug,'slug'=>$blog->slug])}}"
-                                                        target="_blank"
-                                                        class="whatsapp"
-                                                    >
-                                                        <i
-                                                            class="
-                                                                fab fa-whatsapp
-                                                            "
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="https://www.facebook.com/sharer.php?u={{route('frontend.blog.details',['category'=>$blog->category->slug,'slug'=>$blog->slug])}}"
-                                                        target="_blank"
-                                                        class="facebook"
-                                                    >
-                                                        <i
-                                                            class="
-                                                                fab fa-facebook
-                                                            "
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="https://twitter.com/share?url={{route('frontend.blog.details',['category'=>$blog->category->slug,'slug'=>$blog->slug])}}&text={{$blog->title}}"
-                                                        target="_blank"
-                                                        class="twitter"
-                                                    >
-                                                        <i
-                                                            class="
-                                                                fab fa-twitter
-                                                            "
-                                                        ></i>
-                                                    </a>
-                                                </li>
+                                                @include('partials.social-share', [
+                                                    'url' => route('frontend.blog.details', ['category' => $blog->category->slug, 'slug' => $blog->slug]),
+                                                    'title' => $blog->title,
+                                                    'layout' => 'share-submenu',
+                                                ])
                                             </ul>
                                         </li>
                                     </ul>

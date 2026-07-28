@@ -148,10 +148,16 @@
                     <!-- Videos section -->
                     <div id="videos" class="videos-div">
                         <div class="row">
+                            @php $hasTikTokEmbed = false; @endphp
                             @forelse ($videos as $video)
                                 <div id="video-list" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mb-3">
                                     <div class="card-div">
-                                        <iframe allowfullscreen src={{$video->video_link}}></iframe>
+                                        @if(\Illuminate\Support\Str::contains($video->video_link, 'tiktok.com'))
+                                            @php $hasTikTokEmbed = true; @endphp
+                                            @include('partials.tiktok-embed', ['videoUrl' => $video->video_link])
+                                        @else
+                                            <iframe allowfullscreen src="{{ $video->video_link }}"></iframe>
+                                        @endif
                                     </div>
                                 </div>
                             @empty
@@ -159,8 +165,12 @@
                                     <p>Video not found.</p>
                                 </div>
                             @endforelse
-
                         </div>
+                        @if($hasTikTokEmbed)
+                            @once
+                                <script async src="https://www.tiktok.com/embed.js"></script>
+                            @endonce
+                        @endif
                     </div>
 
                     <!-- Podcasts section -->

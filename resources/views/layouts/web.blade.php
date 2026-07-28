@@ -114,7 +114,7 @@
             rel="stylesheet"
         />
         <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
             rel="stylesheet"
         />
         <link
@@ -314,5 +314,37 @@
             referrerpolicy="no-referrer"
         ></script>
         @livewireScripts
+        <script>
+            document.addEventListener('click', function (event) {
+                var link = event.target.closest('.tiktok-share');
+                if (!link) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                var shareUrl = link.getAttribute('data-share-url') || window.location.href;
+                var shareTitle = link.getAttribute('data-share-title') || document.title;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: shareTitle,
+                        text: shareTitle,
+                        url: shareUrl
+                    }).catch(function () {});
+                    return;
+                }
+
+                var openUpload = function () {
+                    window.open('https://www.tiktok.com/upload', '_blank', 'noopener,noreferrer');
+                };
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(shareUrl).then(openUpload).catch(openUpload);
+                } else {
+                    openUpload();
+                }
+            });
+        </script>
     </body>
 </html>

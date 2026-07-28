@@ -467,7 +467,7 @@
                 </h2>
                 <div class="container p-3">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             @forelse ($News as $publication)
                             <div class="publication">
                                 <div class="pub_img">
@@ -501,13 +501,24 @@
                         <div
                             class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pub_videos"
                         >
-                            <!-- <iframe
-                                src="https://www.tiktok.com/@scout2015/video/6718335390845095173"
-                            >
-                            </iframe> -->
-                            <!-- <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@pullman.excavators/video/7341421645774507270" data-video-id="7341421645774507270" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@pullman.excavators" href="https://www.tiktok.com/@pullman.excavators?refer=embed">@pullman.excavators</a> <p>positive vybe.</p> <a target="_blank" title="♬ original sound - nyarkisii05" href="https://www.tiktok.com/music/original-sound-7246088521063123714?refer=embed">♬ original sound - nyarkisii05</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script> -->
-
-
+                            @foreach(config('services.tiktok.featured_videos', []) as $tiktokVideoUrl)
+                                @include('partials.tiktok-embed', ['videoUrl' => $tiktokVideoUrl])
+                            @endforeach
+                            @if(!empty(config('services.tiktok.featured_videos')))
+                                @once
+                                    <script async src="https://www.tiktok.com/embed.js"></script>
+                                @endonce
+                            @endif
+                            <p class="mt-3 mb-0">
+                                <a
+                                    href="{{ config('services.tiktok.profile_url') }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i class="fab fa-tiktok" aria-hidden="true"></i>
+                                    Follow {{ config('services.tiktok.handle') }} on TikTok
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>

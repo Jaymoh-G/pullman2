@@ -30,4 +30,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'tiktok' => [
+        'profile_url' => env('TIKTOK_PROFILE_URL', 'https://www.tiktok.com/@pullman.excavators'),
+        'handle' => env('TIKTOK_HANDLE', '@pullman.excavators'),
+        'featured_videos' => array_filter(array_map('trim', explode(',', env(
+            'TIKTOK_FEATURED_VIDEOS',
+            'https://www.tiktok.com/@pullman.excavators/video/7341421645774507270'
+        )))),
+    ],
+
 ];

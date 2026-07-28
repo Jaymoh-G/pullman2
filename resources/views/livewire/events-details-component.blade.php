@@ -142,30 +142,11 @@ event-detail .twitter-section {
                                 <div class="post-social-wrapper">
                                     <span><i class="fa fa-share-alt"></i>Share:</span>
                                     <div class="post-social">
-                                        <a
-                                            title="Share this"
-                                            href="https://www.facebook.com/sharer.php?u={{route('frontend.event.details',['slug'=>$event->slug])}}"
-                                            target="_blank"
-                                            class="facebook-share"
-                                            >
-                                                <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a
-                                            title="Tweet this"
-                                            href="https://twitter.com/share?url={{route('frontend.event.details',['slug'=>$event->slug])}}&text={{$event->title}}"
-                                            target="_blank"
-                                            class="twitter-share"
-                                            >
-                                                <i class="fab fa-twitter"></i>
-                                        </a>
-                                        <a
-                                            title="Share with whatsapp"
-                                            href="https://api.whatsapp.com/send?text={{$event->title}} {{route('frontend.event.details',['slug'=>$event->slug])}}"
-                                            target="_blank"
-                                            class="whatsapp-share"
-                                            >
-                                                <i class="fab fa-whatsapp"></i>
-                                        </a>
+                                        @include('partials.social-share', [
+                                            'url' => route('frontend.event.details', ['slug' => $event->slug]),
+                                            'title' => $event->title,
+                                            'layout' => 'post-social',
+                                        ])
                                     </div>
                                     <div class="clear"></div>
                                 </div>

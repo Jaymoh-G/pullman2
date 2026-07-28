@@ -88,9 +88,12 @@
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    placeholder="Enter video link"
+                                                    placeholder="YouTube embed URL or TikTok video URL"
                                                     wire:model="video_link"
                                                 />
+                                                <small class="form-text text-muted">
+                                                    Accepts YouTube embed links or TikTok video URLs (e.g. https://www.tiktok.com/@pullman.excavators/video/...)
+                                                </small>
                                             </div>
                                         </div>  
                                         

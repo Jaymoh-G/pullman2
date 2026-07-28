@@ -203,6 +203,18 @@
                                 </li>
                                 <li>
                                     <a
+                                        href="{{ config('services.tiktok.profile_url') }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{{ config('services.tiktok.handle') }} on TikTok"
+                                        ><i
+                                            class="fab fa-tiktok"
+                                            aria-hidden="true"
+                                        ></i
+                                    ></a>
+                                </li>
+                                <li>
+                                    <a
                                         style="
                                             position: fixed;
                                             width: 39px;

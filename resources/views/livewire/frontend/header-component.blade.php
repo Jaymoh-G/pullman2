@@ -79,6 +79,7 @@
         <div class="social">
           <a href="#" target="_blank" rel="noopener noreferrer"class="facebook ml-5"><i class="fab fa-facebook" style="color: white;"></i></a>
           <a href="#"target="_blank" rel="noopener noreferrer" class="twitter"><i class="fab fa-twitter" style="color: white;"></i></a>
+          <a href="{{ config('services.tiktok.profile_url') }}" target="_blank" rel="noopener noreferrer" class="tiktok" title="{{ config('services.tiktok.handle') }} on TikTok"><i class="fab fa-tiktok" style="color: white;"></i></a>
           <a href="https://wa.me/254726634673?text=Hello.+I+got+your+contacts+from+your+website+and+I%27m+interested+in+your+services." target="_blank" rel="noopener noreferrer"class="instagram"><i class="fab fa-whatsapp" style="color: white;"></i></a>
           <a href="#"target="_blank" rel="noopener noreferrer" class="linkedin mr-5"><i class="fab fa-linkedin" style="color: white;"></i></i></a>
         </div>

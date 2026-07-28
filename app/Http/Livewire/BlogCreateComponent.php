@@ -233,4 +233,112 @@ class BlogCreateComponent extends Component
 
         return asset($encoded);
     }
+
+    public function syncBody($bodyContent = null): void
+    {
+        if ($bodyContent !== null) {
+            $this->body = $bodyContent;
+        }
+    }
+
+    /**
+     * Soft SEO checklist + score (warnings only; does not block save).
+     *
+     * @return array{score:int,status:string,label:string,tips:array<int,string>}
+     */
+    public function getSeoReportProperty(): array
+    {
+        $tips = [];
+        $score = 0;
+
+        $title = trim((string) $this->title);
+        $titleLen = mb_strlen($title);
+        if ($titleLen >= 30 && $titleLen <= 60) {
+            $score += 15;
+        } elseif ($titleLen >= 15) {
+            $score += 8;
+            if ($titleLen < 30) {
+                $tips[] = 'Title is short — aim for 30–60 characters for better search display.';
+            } else {
+                $tips[] = 'Title is long — Google may truncate past ~60 characters.';
+            }
+        } else {
+            $tips[] = 'Add a clear title (30–60 characters works best for SEO).';
+        }
+
+        $slug = trim((string) $this->slug);
+        if ($slug !== '' && preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $slug)) {
+            $score += 10;
+        } elseif ($slug !== '') {
+            $score += 4;
+            $tips[] = 'Slug should be lowercase words separated by hyphens (e.g. excavator-hire-nairobi).';
+        } else {
+            $tips[] = 'Add a URL-safe slug (auto-filled from the title).';
+        }
+
+        $meta = trim((string) $this->metaDescription);
+        $metaLen = mb_strlen($meta);
+        if ($metaLen >= 120 && $metaLen <= 158) {
+            $score += 20;
+        } elseif ($metaLen >= 50) {
+            $score += 10;
+            if ($metaLen < 120) {
+                $tips[] = 'Meta description is short — aim for 120–158 characters.';
+            } else {
+                $tips[] = 'Meta description is over 158 characters and may be truncated.';
+            }
+        } else {
+            $tips[] = 'Write a meta description of 120–158 characters summarizing the post.';
+        }
+
+        $hasImage = (bool) $this->photo || !empty($this->image) || !empty($this->tempImage);
+        if ($hasImage) {
+            $score += 15;
+        } else {
+            $tips[] = 'Add a featured image — it improves social sharing and Article SEO.';
+        }
+
+        $bodyText = trim(html_entity_decode(strip_tags((string) $this->body), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        $bodyText = preg_replace('/\s+/u', ' ', $bodyText) ?: '';
+        $bodyLen = mb_strlen($bodyText);
+        if ($bodyLen >= 150) {
+            $score += 20;
+        } elseif ($bodyLen >= 50) {
+            $score += 10;
+            $tips[] = 'Body is thin — aim for at least 150 characters of real content.';
+        } else {
+            $tips[] = 'Write post body content (at least 150 characters) for better SEO.';
+        }
+
+        $tagCount = is_array($this->tags) ? count(array_filter($this->tags)) : 0;
+        if ($tagCount >= 1) {
+            $score += 10;
+        } else {
+            $tips[] = 'Select at least one tag to help topical grouping.';
+        }
+
+        if (!empty($this->category_id)) {
+            $score += 10;
+        } else {
+            $tips[] = 'Choose a category so the post URL and breadcrumbs work correctly.';
+        }
+
+        if ($score >= 80) {
+            $status = 'green';
+            $label = 'Good';
+        } elseif ($score >= 50) {
+            $status = 'yellow';
+            $label = 'Needs work';
+        } else {
+            $status = 'red';
+            $label = 'Poor';
+        }
+
+        return [
+            'score' => $score,
+            'status' => $status,
+            'label' => $label,
+            'tips' => $tips,
+        ];
+    }
 }

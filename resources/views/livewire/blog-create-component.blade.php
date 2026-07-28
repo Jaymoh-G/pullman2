@@ -80,6 +80,61 @@
         .blog-create-error-summary ul {
             margin-top: 0.5rem;
         }
+        .blog-seo-panel {
+            border: 1px solid #e5e5e5;
+            border-left-width: 4px;
+            border-radius: 4px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 1.25rem;
+            background: #fafafa;
+        }
+        .blog-seo-panel-head {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .blog-seo-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .blog-seo-score {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        .blog-seo-tips {
+            margin-top: 0.35rem;
+            color: #444;
+            font-size: 0.9rem;
+        }
+        .blog-seo-ok {
+            color: #2e7d32;
+        }
+        .blog-seo-green {
+            border-left-color: #2e7d32;
+            background: #f1f8f2;
+        }
+        .blog-seo-green .blog-seo-dot {
+            background: #2e7d32;
+        }
+        .blog-seo-yellow {
+            border-left-color: #f9a825;
+            background: #fffbf0;
+        }
+        .blog-seo-yellow .blog-seo-dot {
+            background: #f9a825;
+        }
+        .blog-seo-red {
+            border-left-color: #c62828;
+            background: #fdf2f2;
+        }
+        .blog-seo-red .blog-seo-dot {
+            background: #c62828;
+        }
         @media (min-width: 768px) {
             .btn-pullman {
                 width: auto;
@@ -172,6 +227,14 @@
                         ],
                     },
                     placeholder: 'Write the post body…',
+                });
+
+                let bodySyncTimer = null;
+                quill.on('text-change', function () {
+                    clearTimeout(bodySyncTimer);
+                    bodySyncTimer = setTimeout(function () {
+                        @this.call('syncBody', getBlogBodyContent());
+                    }, 600);
                 });
             };
 

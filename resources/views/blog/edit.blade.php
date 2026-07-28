@@ -16,10 +16,32 @@
         </div>
     @endif
 
+    @php $seo = $this->seo_report; @endphp
+    <div class="blog-seo-panel blog-seo-{{ $seo['status'] }}" role="status" aria-live="polite">
+        <div class="blog-seo-panel-head">
+            <span class="blog-seo-dot" aria-hidden="true"></span>
+            <strong>SEO: {{ $seo['label'] }}</strong>
+            <span class="blog-seo-score">{{ $seo['score'] }}/100</span>
+            <small class="text-muted ml-auto">Advisory only — does not block save</small>
+        </div>
+        @if (count($seo['tips']))
+            <ul class="blog-seo-tips mb-0 pl-3">
+                @foreach ($seo['tips'] as $tip)
+                    <li>{{ $tip }}</li>
+                @endforeach
+            </ul>
+        @else
+            <p class="blog-seo-ok mb-0 small">Looks good for search — title, meta, image, and content are in range.</p>
+        @endif
+    </div>
+
     <div class="blog-create-form" id="blog-create-form">
         <div class="blog-field">
             <label for="blog-title">Title</label>
-            <small class="text-muted d-block mb-1">Max 255 characters (aim for ~60)</small>
+            <small class="text-muted d-block mb-1">
+                Aim for 30–60 characters
+                <span class="blog-char-count">({{ mb_strlen(trim((string) $title)) }})</span>
+            </small>
             <input
                 id="blog-title"
                 type="text"
@@ -34,6 +56,7 @@
 
         <div class="blog-field">
             <label for="blog-slug">Slug</label>
+            <small class="text-muted d-block mb-1">Lowercase words separated by hyphens</small>
             <input
                 id="blog-slug"
                 type="text"
@@ -135,7 +158,10 @@
 
         <div class="blog-field">
             <label for="blog-meta">Meta description</label>
-            <small class="text-muted d-block mb-1">Max 158 characters</small>
+            <small class="text-muted d-block mb-1">
+                Aim for 120–158 characters
+                <span class="blog-char-count">({{ mb_strlen(trim((string) $metaDescription)) }}/158)</span>
+            </small>
             <textarea
                 id="blog-meta"
                 wire:model.debounce.500ms="metaDescription"
